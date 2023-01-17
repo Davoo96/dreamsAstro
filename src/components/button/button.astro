@@ -1,0 +1,11 @@
+---
+type ButtonProps = {
+  text: string;
+  link: string;
+  className: string;
+};
+
+const { text, link, className } = Astro.props as ButtonProps;
+---
+
+<a href={link} class={`text-base ${className}`}>{text}</a>

@@ -1,0 +1,16 @@
+---
+type TitleProps = {
+  text: string;
+  dark: boolean;
+};
+
+const { text, dark } = Astro.props as TitleProps;
+---
+
+<h1
+  class={`text-sm md:text-huge font-bold uppercase ${
+    dark ? "text-black-300 drop-shadow-hugeDark" : "text-white drop-shadow-huge"
+  }`}
+>
+  {text}
+</h1>
