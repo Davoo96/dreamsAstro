@@ -12,8 +12,8 @@ const Navigation = ({ items, logoNavigation }: NavigationItemsProps) => {
 
   return (
     <nav className="fixed z-50 p-7 bg-black-300 w-full">
-      <div className="w-full md:flex md:items-center md:justify-between md:items-center md:max-w-5xl md:m-auto">
-        <header className="flex flex-row-reverse gap-5 items-center justify-between">
+      <div className="w-full md:flex md:justify-between md:items-center md:max-w-5xl md:m-auto">
+        <header className="flex gap-5 items-center justify-between">
           <a aria-label="Dreams Logo" href={logoNavigation}>
             <DreamsLogo />
           </a>
@@ -32,7 +32,7 @@ const Navigation = ({ items, logoNavigation }: NavigationItemsProps) => {
         </header>
         <ul
           className={`pl-7 mt-7 text-white uppercase bg-black-300 w-full left-0 absolute md:pl-0 md:mt-0 md:opacity-100 md:w-auto md:flex md:items-center md:gap-7 md:relative ${
-            open ? "opacity-100" : "opacity-0"
+            open ? "block" : "hidden"
           }`}
         >
           {items.map((item, index) => (

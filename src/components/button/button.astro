@@ -8,4 +8,4 @@ type ButtonProps = {
 const { text, link, className } = Astro.props as ButtonProps;
 ---
 
-<a href={link} class={`text-base block bg-black-300 border border-orange-300 py-4 mt-8 text-center text-white duration-300 hover:bg-orange-300 hover:border-black-300 ${className}`}>{text}</a>
+<a href={link} class={`text-base font-bold block bg-black-300 border border-orange-300 py-4 mt-8 text-center text-white duration-300 hover:bg-orange-300 hover:border-black-300 ${className}`}>{text}</a>

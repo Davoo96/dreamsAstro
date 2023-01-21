@@ -7,7 +7,9 @@ module.exports = {
         Montserrat: ["Montserrat", "sans-serif"]
       },
       fontSize: {
+        md: ["2rem", "1"],
         lg: ["3.5rem", "1.25"],
+        big: ["10rem", "1"],
         huge: ["16rem", "1"]
       },
       boxShadow: {
