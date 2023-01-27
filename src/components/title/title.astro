@@ -2,15 +2,18 @@
 type TitleProps = {
   text: string;
   dark: boolean;
+  className?: string;
 };
 
-const { text, dark } = Astro.props as TitleProps;
+const { text, dark, className } = Astro.props as TitleProps;
 ---
 
 <h1
   class={`text-sm font-bold uppercase ${
-    dark ? "text-black-300 drop-shadow-hugeDark md:text-big text-md" : "text-white drop-shadow-huge text-lg md:text-huge"
-  }`}
+    dark
+      ? "text-black-300 drop-shadow-hugeDark md:text-big text-md"
+      : "text-white drop-shadow-huge text-lg md:text-huge"
+  } ${className}`}
 >
   {text}
 </h1>

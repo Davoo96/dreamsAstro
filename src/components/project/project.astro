@@ -1,0 +1,32 @@
+---
+import Button from "../button/button.astro";
+
+export enum ProjectEnum {
+  NOVO_RESIDENCE = "NOVO_RESIDENCE",
+  JABUTICABEIRA = "JABUTICABEIRA",
+  VIEW = "VIEW"
+}
+
+type ProjectProps = {
+  title: string;
+  text: string;
+  subtext: string;
+  link: string;
+  background: ProjectEnum;
+};
+
+const backgroundStrategy: { [key in ProjectEnum]: string } = {
+  NOVO_RESIDENCE: "bg-novo-residence md:bg-novo-residence-desktop",
+  JABUTICABEIRA: "bg-jabuticabeira md:bg-jabuticabeira-desktop",
+  VIEW: "bg-view md:bg-view-desktop"
+};
+
+const { title, subtext, text, link, background } = Astro.props as ProjectProps;
+---
+
+<div class={`text-white flex flex-col items-start justify-start py-14 px-6 h-[420px] bg-no-repeat bg-100 md:justify-center md:pl-56 md:h-[713px] ${backgroundStrategy[background]}`}>
+  <h2 class="text-2xl mb-6 uppercase font-bold md:text-5xl">{title}</h2>
+  <p class="text-base md:text-2xl">{text}</p>
+  <p class="text-base md:text-2xl">{subtext}</p>
+  <Button className="w-[147px]" link={link} text="Saiba mais" />
+</div>

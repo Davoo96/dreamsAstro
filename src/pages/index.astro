@@ -1,58 +1,111 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Button from "../components/button/button.astro";
-import Featured from "../components/featured/featured.astro";
-import Qualities, { IconName } from "../components/qualities/qualities.astro";
-import Navigation from "../components/navigation";
-import { mainNavigationItems } from "../components/navigation/definitions";
-import Title from "src/components/title/title.astro";
+import Project, { ProjectEnum } from "src/components/project/project.astro";
 import houseOne from "../assets/pictures/pht-01.png";
 import houseTwo from "../assets/pictures/pht-02.png";
+import Button from "../components/button/button.astro";
+import Featured from "../components/featured/featured.astro";
+import Navigation from "../components/navigation";
+import { mainNavigationItems } from "../components/navigation/definitions";
+import Quality,{ IconName } from "../components/quality/quality.astro";
+import Title from "../components/title/title.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Dreams Incorporadora">
   <main>
     <Navigation client:load items={mainNavigationItems} logoNavigation="#top" />
-		<header class="relative flex items-center justify-center h-screen bg-header-image bg-no-repeat bg-100 px-3 md:bg-header-desktop-image md:pt-80">
-			<div class="max-w-7/10">
-				<h1 class="text-center text-2xl text-white md:text-lg">
-					O ponto de partida para a <strong>casa dos seus sonhos.</strong>
-				</h1>
-				<Button text="Entre em contato" link="#contact" className="w-[209px] mx-auto" />
-			</div>
-		</header>
+    <header
+      class="relative flex items-center justify-center h-screen bg-header-image bg-no-repeat bg-100 px-3 md:bg-header-desktop-image md:pt-80"
+    >
+      <div class="max-w-7/10">
+        <h1 class="text-center text-2xl text-white md:text-lg">
+          O ponto de partida para a <strong>casa dos seus sonhos.</strong>
+        </h1>
+        <Button
+          text="Entre em contato"
+          link="#contact"
+          className="w-[209px] mx-auto"
+        />
+      </div>
+    </header>
 
-		<section class="pt-12 md:pt-32 max-w-8/10 mx-auto">
-			<Title text="Quem somos" />
-			<div class="flex flex-wrap pt-16 gap-12 md:gap-0 md:pt-24 md:flex-nowrap md:justify-center md:flex-row-reverse">
-				<div class="w-[500px]">
-					<p class="font-bold text-orange-300 mb-12 text-base md:text-2xl">Estamos localizados na enigmática cidade de Florianópolis, também conhecida como “A ilha da magia”. Está categorizada como uma das melhores cidades do Brasil para morar, com um alto índice de desenvolvimento, proximidade à natureza e bairros seguros, ela é a queridinha de muitos brasileiros e estrangeiros, que a escolheram como lar. Vem investir com a gente e realizar seu sonho de viver nesse paraíso!</p>
-					<p class="text-base text-black-300 md:text-2xl">Somos uma empresa focalizada em inovação e controle de qualidade, que utiliza métodos construtivos eficientes, com prazos de execução acelerados. Construimos sonhos! Ajudamos a tornar realidade o desejo de adquirir um imóvel diferenciado e único!</p>
-					<Button text="Saiba mais" link="#contact" className="w-[147px] mx-auto md:mx-0" />
-				</div>
-				<div class="relative justify-self-center md:pr-32 md:before:content-[''] md:before:border md:before:border-black-300 md:before:w-[393px] md:before:h-[408px] md:before:absolute md:before:top-2/4 md:before:-translate-y-2/4 md:before:left-[40%] md:before:-translate-x-2/4">
-					<img class="relative w-full max-w-[379px]" src={houseOne} >
-					<img class="relative w-full max-w-[379px] md:ml-24 mt-11" src={houseTwo} >
-				</div>
-			</div>
-		</section>
+    <section class="pt-12 md:pt-32 max-w-8/10 mx-auto">
+      <Title text="Quem somos" />
+      <div
+        class="flex flex-wrap pt-16 gap-12 md:gap-0 md:pt-24 md:flex-nowrap md:justify-center md:flex-row-reverse"
+      >
+        <div class="w-[500px]">
+          <p class="font-bold text-orange-300 mb-12 text-base md:text-2xl">
+            Estamos localizados na enigmática cidade de Florianópolis, também
+            conhecida como “A ilha da magia”. Está categorizada como uma das
+            melhores cidades do Brasil para morar, com um alto índice de
+            desenvolvimento, proximidade à natureza e bairros seguros, ela é a
+            queridinha de muitos brasileiros e estrangeiros, que a escolheram
+            como lar. Vem investir com a gente e realizar seu sonho de viver
+            nesse paraíso!
+          </p>
+          <p class="text-base text-black-300 md:text-2xl">
+            Somos uma empresa focalizada em inovação e controle de qualidade,
+            que utiliza métodos construtivos eficientes, com prazos de execução
+            acelerados. Construimos sonhos! Ajudamos a tornar realidade o desejo
+            de adquirir um imóvel diferenciado e único!
+          </p>
+          <Button
+            text="Saiba mais"
+            link="#contact"
+            className="w-[147px] mx-auto md:mx-0"
+          />
+        </div>
+        <div
+          class="relative justify-self-center md:pr-32 md:before:content-[''] md:before:border md:before:border-black-300 md:before:w-[393px] md:before:h-[408px] md:before:absolute md:before:top-2/4 md:before:-translate-y-2/4 md:before:left-[40%] md:before:-translate-x-2/4"
+        >
+          <img class="relative w-full max-w-[379px]" src={houseOne} />
+          <img
+            class="relative w-full max-w-[379px] md:ml-24 mt-11"
+            src={houseTwo}
+          />
+        </div>
+      </div>
+    </section>
 
-		<Featured text="Temos como foco a execução, planejamento e entrega de imóveis diferenciados e exclusivos." />
+    <Featured
+      text="Temos como foco a execução, planejamento e entrega de imóveis diferenciados e exclusivos."
+    />
 
-		<section class="py-12 bg-black-300 md:py-32">
-			<div class="max-w-8/10 mx-auto">
-				<Title text="Nosso diferencial" dark />
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-16">
-					<Qualities iconName={IconName.SAFETY} title="Segurança" text="O cuidado com o ser humano é nossa prioridade! A Dreams Incorporadora proporciona aos seus trabalhadores um ambiente de trabalho seguro, seguindo todas as normas, utilizando o uso correto de EPI’s (equipamentos de proteção individual), e operação de maquinário pesado e ferramentas de construção civil. Executando sempre a obra de forma segura." />
-					<Qualities iconName={IconName.EFFICIENCY} title="Eficiência" text="Utilizamos métodos de construção e administração baseados em ciência e tecnologia. Com o uso desses métodos, conseguimos providenciar um diferencial em todos os nossos empreendimentos. Seja na hora de projetar uma nova estrutura, ou no momento de executar a obra." />
-					<Qualities iconName={IconName.PLANNING} title="Planejamento" text="Todos os empreendimentos da Dreams Incorporadora são projetados com a visão de providenciar espaços amplos, que oferecem flexibilidade & conforto na hora de receber e personalizar o novo lar." />
-					<Qualities iconName={IconName.QUALITY} title="Qualidade" text="Obras com prazos atrativos, com alto padrão de acabamento, e qualidade em todas as fases do empreendimento. Providenciando para o cliente tranquilidade & rentabilidade no momento de investir nos produtos da Dreams Incorporadora." />
-				</div>
-			</div>
-		</section>
+    <section class="py-12 bg-black-300 md:py-32">
+      <div class="max-w-8/10 mx-auto">
+        <Title text="Nosso diferencial" dark />
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-16">
+          <Quality
+            iconName={IconName.SAFETY}
+            title="Segurança"
+            text="O cuidado com o ser humano é nossa prioridade! A Dreams Incorporadora proporciona aos seus trabalhadores um ambiente de trabalho seguro, seguindo todas as normas, utilizando o uso correto de EPI’s (equipamentos de proteção individual), e operação de maquinário pesado e ferramentas de construção civil. Executando sempre a obra de forma segura."
+          />
+          <Quality
+            iconName={IconName.EFFICIENCY}
+            title="Eficiência"
+            text="Utilizamos métodos de construção e administração baseados em ciência e tecnologia. Com o uso desses métodos, conseguimos providenciar um diferencial em todos os nossos empreendimentos. Seja na hora de projetar uma nova estrutura, ou no momento de executar a obra."
+          />
+          <Quality
+            iconName={IconName.PLANNING}
+            title="Planejamento"
+            text="Todos os empreendimentos da Dreams Incorporadora são projetados com a visão de providenciar espaços amplos, que oferecem flexibilidade & conforto na hora de receber e personalizar o novo lar."
+          />
+          <Quality
+            iconName={IconName.QUALITY}
+            title="Qualidade"
+            text="Obras com prazos atrativos, com alto padrão de acabamento, e qualidade em todas as fases do empreendimento. Providenciando para o cliente tranquilidade & rentabilidade no momento de investir nos produtos da Dreams Incorporadora."
+          />
+        </div>
+      </div>
+    </section>
 
-		<section class="py-12 md:py-32">
-			<Title text="Projetos" />
-		</section>
+    <section class="py-12 md:py-32">
+      <Title className="text-center mb-12" text="Projetos" />
+
+			<Project background={ProjectEnum.NOVO_RESIDENCE} title="Novo Residence" text="Localizado no setor norte de Florianópolis, no bairro João Paulo, perto das praias e do centro de Florianópolis." subtext="Venha viver essa experiência." />
+			<Project background={ProjectEnum.JABUTICABEIRA} title="Jabuticabeira ii" text="Localizado no Ribeirão Da Ilha, a 10 min da praia do Novo Campeche e 4 min da praia do Morro das Pedras. Um empreendimento com elegância, qualidade, e arquitetura moderna." subtext="" />
+			<Project background={ProjectEnum.VIEW} title="View" text="Um empreendimento visionário, para experimentar a vida com um novo olhar." />
+    </section>
   </main>
 </Layout>

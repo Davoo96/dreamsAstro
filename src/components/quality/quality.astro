@@ -22,12 +22,20 @@ const iconStrategy: { [key in IconName]: any } = {
   EFFICIENCY: EfficiencyIcon,
   PLANNING: PlanningIcon,
   QUALITY: QualityIcon
-}
+};
 
 const { text, title, iconName } = Astro.props as QualitiesProps;
 ---
 
-<div class="bg-transparent border border-orange-300 px-2.5 py-6 md:px-10 md:py-12">
-  <h3 class="text-orange-300 pb-9 text-base font-bold md:text-2xl"><img class="bg-white rounded-full p-3 mr-4 inline-block h-[57.5px] w-[57.5px] md:mr-9 md:h-[75px] md:w-[75px]" src={iconStrategy[iconName]} alt="" >{title}</h3>
+<div
+  class="bg-transparent border border-orange-300 px-2.5 py-6 md:px-10 md:py-12"
+>
+  <h3 class="text-orange-300 pb-9 text-base font-bold md:text-2xl">
+    <img
+      class="bg-white rounded-full p-3 mr-4 inline-block h-[57.5px] w-[57.5px] md:mr-9 md:h-[75px] md:w-[75px]"
+      src={iconStrategy[iconName]}
+      alt=""
+    />{title}
+  </h3>
   <p class="text-base px-4 text-white md:text-2xl">{text}</p>
 </div>
