@@ -21,12 +21,17 @@ module.exports = {
         "header-desktop-image":
           "linear-gradient(#1f2224, transparent), url('/src/assets/pictures/JanduiCasas5.png')",
         "header-gradient": "linear-gradient(#1f2224, transparent)",
-        "novo-residence": "linear-gradient(#1f2224, 80%, transparent), url('/src/assets/pictures/mobile-01.png')",
-        "novo-residence-desktop": "linear-gradient(#1f2224, transparent), url('/src/assets/pictures/pht-03.png')",
-        "jabuticabeira": "linear-gradient(#1f2224, 80%, transparent), url('/src/assets/pictures/mobile-02.png')",
-        "jabuticabeira-desktop": "linear-gradient(#1f2224, transparent), url('/src/assets/pictures/pht-04.png')",
-        "view": "linear-gradient(#1f2224, 80%, transparent), url('/src/assets/pictures/mobile-03.png')",
-        "view-desktop": "linear-gradient(#1f2224, transparent), url('/src/assets/pictures/pht-36.png')"
+        "novo-residence":
+          "linear-gradient(#1f2224, 80%, transparent), url('/src/assets/pictures/mobile-01.png')",
+        "novo-residence-desktop":
+          "linear-gradient(#1f2224, transparent), url('/src/assets/pictures/pht-03.png')",
+        jabuticabeira:
+          "linear-gradient(#1f2224, 80%, transparent), url('/src/assets/pictures/mobile-02.png')",
+        "jabuticabeira-desktop":
+          "linear-gradient(#1f2224, transparent), url('/src/assets/pictures/pht-04.png')",
+        view: "linear-gradient(#1f2224, 80%, transparent), url('/src/assets/pictures/mobile-03.png')",
+        "view-desktop":
+          "linear-gradient(#1f2224, transparent), url('/src/assets/pictures/pht-36.png')"
       },
       backgroundSize: {
         100: "100% 100%"
@@ -39,6 +44,9 @@ module.exports = {
         black: {
           300: "#1f2224",
           50: "linear-gradient(#000, transparent)"
+        },
+        gray: {
+          300: "#e0e0e0"
         }
       },
       dropShadow: {
