@@ -9,10 +9,10 @@ const { text, dark, className } = Astro.props as TitleProps;
 ---
 
 <h1
-  class={`text-sm font-bold uppercase ${
+  class={`text-sm font-bold uppercase laptop:text-8xl ${
     dark
-      ? "text-black-300 drop-shadow-hugeDark md:text-big text-md"
-      : "text-white drop-shadow-huge text-lg md:text-huge"
+      ? "text-black-300 drop-shadow-hugeDark desktop:text-big text-md"
+      : "text-white drop-shadow-huge text-lg desktop:text-huge"
   } ${className}`}
 >
   {text}
