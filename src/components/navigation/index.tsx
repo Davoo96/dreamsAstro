@@ -38,6 +38,7 @@ const Navigation = ({ items, logoNavigation }: NavigationItemsProps) => {
           {items.map((item, index) => (
             <Item
               key={index}
+              onClick={() => setOpen(false)}
               className="mb-5 font-bold text-2xl relative md:mb-0 md:after:content-[''] md:after:absolute md:after:w-full md:after:h-0.5 md:after:scale-0 md:after:left-0 md:after:origin-right md:after:bottom-0 md:after:transition-transform md:after:duration-300 md:after:ease-in md:after:bg-orange-300 md:hover:after:scale-100 md:hover:after:origin-left"
               {...item}
             />

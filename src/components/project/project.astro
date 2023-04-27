@@ -16,17 +16,19 @@ type ProjectProps = {
 };
 
 const backgroundStrategy: { [key in ProjectEnum]: string } = {
-  NOVO_RESIDENCE: "bg-novo-residence md:bg-novo-residence-desktop",
-  JABUTICABEIRA: "bg-jabuticabeira md:bg-jabuticabeira-desktop",
-  VIEW: "bg-view md:bg-view-desktop"
+  NOVO_RESIDENCE: "bg-novo-residence tablet:bg-novo-residence-desktop",
+  JABUTICABEIRA: "bg-jabuticabeira tablet:bg-jabuticabeira-desktop",
+  VIEW: "bg-view tablet:bg-view-desktop"
 };
 
 const { title, subtext, text, link, background } = Astro.props as ProjectProps;
 ---
 
-<div class={`text-white flex flex-col items-start justify-start py-14 px-6 h-[420px] bg-no-repeat bg-100 md:justify-center md:pl-56 md:h-[713px] ${backgroundStrategy[background]}`}>
-  <h2 class="text-2xl mb-6 uppercase font-bold md:text-5xl">{title}</h2>
-  <p class="text-base md:text-2xl">{text}</p>
-  <p class="text-base md:text-2xl">{subtext}</p>
+<div
+  class={`text-white flex flex-col items-start justify-start py-14 px-6 h-[420px] bg-no-repeat bg-100 desktop:justify-center desktop:pl-56 desktop:h-[713px] ${backgroundStrategy[background]}`}
+>
+  <h2 class="text-2xl mb-6 uppercase font-bold desktop:text-5xl">{title}</h2>
+  <p class="text-base desktop:text-2xl">{text}</p>
+  <p class="text-base desktop:text-2xl">{subtext}</p>
   <Button className="w-[147px]" link={link} text="Saiba mais" />
 </div>

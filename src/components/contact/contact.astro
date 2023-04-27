@@ -5,16 +5,17 @@ import email from "../../assets/icons/icon-email.svg";
 ---
 
 <div
-  class="max-w-8/10 mx-auto flex items-center gap-12 relative flex-col desktop:flex-row desktop:after:absolute after:bg-black-300 desktop:after:w-[900px] desktop:after:h-[535px] desktop:after:right-[-240px] desktop:after:top-[66px] after:z-[-1]"
+  class="desktop:target:scroll-m-40 target:scroll-m-28 desktop:max-w-8/10 desktop:mx-auto flex items-center gap-12 relative flex-col desktop:flex-row desktop:after:absolute after:bg-black-300 desktop:after:w-[900px] desktop:after:h-[535px] desktop:after:right-[-240px] desktop:after:top-[66px] after:z-[-1]"
+  id="contact"
 >
-  <div class="tablet:text-center">
+  <div class="text-center desktop:text-left">
     <h2
       class="text-2xl mb-10 uppercase font-bold text-black-300 md:text-5xl mt-[66px]"
     >
-      Fale Consoco
+      Fale Conosco
     </h2>
     <form action="" method="post">
-      <fieldset class="flex flex-col gap-6 justify-center w-[478px]">
+      <fieldset class="flex flex-col gap-6 justify-center tablet:w-[478px]">
         <label for="name" class="hidden">Nome</label>
         <input
           class="relative border-solid border-[1px] py-3 px-5 border-gray-300"
@@ -55,18 +56,19 @@ import email from "../../assets/icons/icon-email.svg";
       </fieldset>
     </form>
   </div>
-  <div class="text-white bg-black-300 desktop:bg-transparent tablet:w-full">
+  <div
+    class="desktop:pt-[450px] desktop:pb-0 pb-[450px] pt-12 px-4 text-white bg-black-300 desktop:bg-transparent w-full"
+  >
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3537.8830519885346!2d-48.51213278494175!3d-27.535092182863636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9527470d7aaf826b%3A0x4d3572e8bdd0a188!2sSquare%20SC!5e0!3m2!1sen!2sus!4v1682432453134!5m2!1sen!2sus"
-      width="600"
-      height="450"
       style="border:0;"
       allowfullscreen=""
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
-      class="absolute bottom-0 desktop:top-0 w-full max-w-[615px]"></iframe>
-    <div class="desktop:pt-[422px] text-xs">
-      <div class="flex gap-4 items-center flex-nowrap">
+      class="absolute bottom-0 right-1/2 translate-x-1/2 desktop:right-0 desktop:translate-x-0 desktop:top-0 h-[450px] w-full max-w-[300px] tablet:max-w-[615px]"
+    ></iframe>
+    <div class="text-xs">
+      <div class="flex gap-4 items-center flex-nowrap max-w-[479px] mx-auto">
         <img src={home} alt="" />
         <div>
           <h4 class="font-bold">Endereço</h4>
@@ -76,7 +78,9 @@ import email from "../../assets/icons/icon-email.svg";
           </p>
         </div>
       </div>
-      <div class="flex flex-row gap-14 pt-6 items-center">
+      <div
+        class="flex flex-row flex-wrap gap-6 tablet:flex-nowrap tablet:gap-14 pt-6 items-center max-w-[479px] mx-auto"
+      >
         <div class="flex flex-nowrap items-center gap-4">
           <img src={phone} alt="" />
           <div>

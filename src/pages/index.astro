@@ -17,10 +17,10 @@ import Contact from "src/components/contact/contact.astro";
   <main>
     <Navigation client:load items={mainNavigationItems} logoNavigation="#top" />
     <header
-      class="relative flex items-center justify-center h-screen bg-header-image bg-no-repeat bg-100 px-3 md:bg-header-desktop-image md:pt-80"
+      class="relative flex items-center justify-center h-screen bg-header-image bg-no-repeat bg-100 px-3 tablet:bg-header-desktop-image desktop:pt-80"
     >
       <div class="max-w-7/10">
-        <h1 class="text-center text-2xl text-white md:text-lg">
+        <h1 class="text-center text-2xl text-white desktop:text-lg">
           O ponto de partida para a <strong>casa dos seus sonhos.</strong>
         </h1>
         <Button
@@ -31,13 +31,13 @@ import Contact from "src/components/contact/contact.astro";
       </div>
     </header>
 
-    <section class="pt-12 md:pt-32 max-w-8/10 mx-auto">
+    <section class="desktop:target:scroll-m-0 target:scroll-m-28 pt-12 desktop:pt-32 max-w-8/10 mx-auto" id="about">
       <Title text="Quem somos" className="laptop:text-9xl" />
       <div
-        class="flex flex-wrap pt-16 gap-12 md:gap-0 md:pt-24 md:flex-nowrap md:justify-center md:flex-row-reverse"
+        class="flex flex-wrap pt-16 gap-12 desktop:gap-0 desktop:pt-24 desktop:flex-nowrap desktop:justify-center desktop:flex-row-reverse"
       >
-        <div class="w-[500px]">
-          <p class="font-bold text-orange-300 mb-12 text-base md:text-2xl">
+        <div class="desktop:w-[500px] w-full">
+          <p class="font-bold text-orange-300 mb-12 text-base desktop:text-2xl">
             Estamos localizados na enigmática cidade de Florianópolis, também
             conhecida como “A ilha da magia”. Está categorizada como uma das
             melhores cidades do Brasil para morar, com um alto índice de
@@ -46,7 +46,7 @@ import Contact from "src/components/contact/contact.astro";
             como lar. Vem investir com a gente e realizar seu sonho de viver
             nesse paraíso!
           </p>
-          <p class="text-base text-black-300 md:text-2xl">
+          <p class="text-base text-black-300 desktop:text-2xl">
             Somos uma empresa focalizada em inovação e controle de qualidade,
             que utiliza métodos construtivos eficientes, com prazos de execução
             acelerados. Construimos sonhos! Ajudamos a tornar realidade o desejo
@@ -54,16 +54,16 @@ import Contact from "src/components/contact/contact.astro";
           </p>
           <Button
             text="Saiba mais"
-            link="#contact"
-            className="w-[147px] mx-auto md:mx-0"
+            link="#"
+            className="w-[147px] mx-auto desktop:mx-0"
           />
         </div>
         <div
-          class="relative justify-self-center md:pr-32 md:before:content-[''] md:before:border md:before:border-black-300 md:before:w-[393px] md:before:h-[408px] md:before:absolute md:before:top-2/4 md:before:-translate-y-2/4 md:before:left-[40%] md:before:-translate-x-2/4"
+          class="relative flex justify-center items-center flex-wrap gap-6 mx-auto desktop:block desktop:pr-32 desktop:before:content-[''] desktop:before:border desktop:before:border-black-300 desktop:before:w-[393px] desktop:before:h-[408px] desktop:before:absolute desktop:before:top-2/4 desktop:before:-translate-y-2/4 desktop:before:left-[40%] desktop:before:-translate-x-2/4"
         >
           <img class="relative w-full max-w-[379px]" src={houseOne} />
           <img
-            class="relative w-full max-w-[379px] md:ml-24 mt-11"
+            class="relative w-full max-w-[379px] desktop:ml-24 mt-11"
             src={houseTwo}
           />
         </div>
@@ -74,10 +74,10 @@ import Contact from "src/components/contact/contact.astro";
       text="Temos como foco a execução, planejamento e entrega de imóveis diferenciados e exclusivos."
     />
 
-    <section class="py-12 bg-black-300 md:py-32">
+    <section class="py-12 bg-black-300 desktop:py-32">
       <div class="max-w-8/10 mx-auto">
         <Title text="Nosso diferencial" dark />
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-16">
+        <div class="grid grid-cols-1 desktop:grid-cols-2 gap-6 pt-16">
           <Quality
             iconName={IconName.SAFETY}
             title="Segurança"
@@ -102,7 +102,7 @@ import Contact from "src/components/contact/contact.astro";
       </div>
     </section>
 
-    <section class="py-12 md:py-32">
+    <section class="desktop:target:scroll-m-0 target:scroll-m-28 py-12 desktop:py-32" id="enterprises">
       <Title className="text-center mb-12" text="Projetos" />
 
       <Project
