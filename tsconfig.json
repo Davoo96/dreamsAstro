@@ -1,5 +1,10 @@
 {
   "extends": "astro/tsconfigs/strict",
+  "plugins": [
+    {
+      "name": "@astrojs/ts-plugin"
+    }
+  ],
   "compilerOptions": {
     "lib": ["ES2022"],
     "jsx": "react-jsx",

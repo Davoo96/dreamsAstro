@@ -1,6 +1,6 @@
 ---
-import whatsapp from "../../assets/icons/icon-whatsapp.svg";
-import instagram from "../../assets/icons/icon-instagram.svg";
+import WhatsAppIcon from "../logos/whatsapp";
+import InstagramIcon from "../logos/instagram";
 ---
 
 <footer class="bg-black-300 p-10 mt-32">
@@ -9,11 +9,11 @@ import instagram from "../../assets/icons/icon-instagram.svg";
   >
     <span>&copy; Dreams Incorporadora</span>
     <div class="flex gap-4 flex-nowrap">
-      <a target="_blank" href="">
-        <img src={whatsapp} class="hover:cursor-pointer" />
+      <a target="_blank" href="#">
+        <WhatsAppIcon className="hover:text-orange-300" />
       </a>
       <a target="_blank" href="https://www.instagram.com/dreamsincorporadora/">
-        <img src={instagram} class="hover:cursor-pointer" />
+        <InstagramIcon className="hover:text-orange-300" />
       </a>
     </div>
     <span

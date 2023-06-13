@@ -68,9 +68,12 @@ module.exports = {
         "8/10": "80%"
       },
       screens: {
-        "tablet":  "640px",
-        "laptop": "1024px",
-        "desktop": "1280px"
+        tablet: "640px",
+        laptop: "1024px",
+        desktop: "1280px"
+      },
+      spacing: {
+        dynamic: "100dvh"
       }
     }
   },

@@ -1,19 +1,6 @@
 ---
+import type { ProjectEnum, ProjectProps } from "./types";
 import Button from "../button/button.astro";
-
-export enum ProjectEnum {
-  NOVO_RESIDENCE = "NOVO_RESIDENCE",
-  JABUTICABEIRA = "JABUTICABEIRA",
-  VIEW = "VIEW"
-}
-
-type ProjectProps = {
-  title: string;
-  text: string;
-  subtext: string;
-  link: string;
-  background: ProjectEnum;
-};
 
 const backgroundStrategy: { [key in ProjectEnum]: string } = {
   NOVO_RESIDENCE: "bg-novo-residence tablet:bg-novo-residence-desktop",

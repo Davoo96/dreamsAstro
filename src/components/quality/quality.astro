@@ -3,21 +3,9 @@ import SafetyIcon from "../../assets/icons/icon-safety.svg";
 import EfficiencyIcon from "../../assets/icons/icon-efficiency.svg";
 import PlanningIcon from "../../assets/icons/icon-planning.svg";
 import QualityIcon from "../../assets/icons/icon-quality.svg";
+import type { IconName, QualitiesProps } from "./types";
 
-export enum IconName {
-  SAFETY = "SAFETY",
-  EFFICIENCY = "EFFICIENCY",
-  PLANNING = "PLANNING",
-  QUALITY = "QUALITY"
-}
-
-type QualitiesProps = {
-  title: string;
-  text: string;
-  iconName: IconName;
-};
-
-const iconStrategy: { [key in IconName]: any } = {
+const iconStrategy: { [key in IconName]: string } = {
   SAFETY: SafetyIcon,
   EFFICIENCY: EfficiencyIcon,
   PLANNING: PlanningIcon,
@@ -35,7 +23,8 @@ const { text, title, iconName } = Astro.props as QualitiesProps;
       class="bg-white rounded-full p-3 mr-4 inline-block h-[57.5px] w-[57.5px] desktop:mr-9 desktop:h-[75px] desktop:w-[75px]"
       src={iconStrategy[iconName]}
       alt=""
-    />{title}
+    />
+    {title}
   </h3>
   <p class="text-base px-4 text-white desktop:text-2xl">{text}</p>
 </div>

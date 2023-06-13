@@ -2,9 +2,9 @@ type LogoProps = {
   className?: string;
 };
 
-const DreamsLogo = (props: LogoProps) => (
+const DreamsLogo = ({ className }: LogoProps) => (
   <svg
-    className={props.className}
+    className={className}
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
     width="265.892"
@@ -33,7 +33,7 @@ const DreamsLogo = (props: LogoProps) => (
     </defs>
     <g id="logo-dreams" transform="translate(-448 -28.178)">
       <g id="Group_84" data-name="Group 84" transform="translate(448 28.178)">
-        <g id="Group_83" data-name="Group 83" clip-path="url(#clip-path)">
+        <g id="Group_83" data-name="Group 83" clipPath="url(#clip-path)">
           <path
             id="Path_38"
             data-name="Path 38"
@@ -86,7 +86,7 @@ const DreamsLogo = (props: LogoProps) => (
         transform="translate(534.545 54.255)"
       >
         <g id="Group_120" data-name="Group 120">
-          <g id="Group_119" data-name="Group 119" clip-path="url(#clip-path-2)">
+          <g id="Group_119" data-name="Group 119" clipPath="url(#clip-path-2)">
             <path
               id="Path_119"
               data-name="Path 119"
@@ -147,7 +147,7 @@ const DreamsLogo = (props: LogoProps) => (
           fill="#fff"
         />
         <g id="Group_122" data-name="Group 122">
-          <g id="Group_121" data-name="Group 121" clip-path="url(#clip-path-2)">
+          <g id="Group_121" data-name="Group 121" clipPath="url(#clip-path-2)">
             <path
               id="Path_126"
               data-name="Path 126"

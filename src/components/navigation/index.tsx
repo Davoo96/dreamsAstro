@@ -2,7 +2,7 @@ import { useState } from "react";
 import DreamsLogo from "../../components/logos/dreamsIncorporadora";
 import Item from "./item";
 
-type NavigationItemsProps = {
+export type NavigationItemsProps = {
   items: { text: string; url: string }[];
   logoNavigation: string;
 };
