@@ -22,6 +22,7 @@
     "skipLibCheck": true,
     "baseUrl": "."
   },
+  "types": ["node", "jest", "@testing-library/jest-dom", "vitest/globals"],
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "src/test"]
 }

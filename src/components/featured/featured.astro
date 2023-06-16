@@ -7,7 +7,8 @@ const { text } = Astro.props as FeaturedProps;
 ---
 
 <div
-  class="my-12 px-12 py-9 border border-orange-300 max-w-8/10 mx-auto md:my-32 md:py-14 md:px-28"
+  data-animate-type="motion-safe:animate-fadeIn"
+  class="my-12 px-12 py-9 border border-orange-300 max-w-8/10 mx-auto md:my-32 md:py-14 md:px-28 js-animation-on-scroll"
 >
   <p class="text-base text-center md:text-2xl">{text}</p>
 </div>

@@ -9,6 +9,7 @@ const { text, dark, className } = Astro.props as TitleProps;
 ---
 
 <h1
+  data-animate-type="motion-safe:animate-fadeLeft"
   class={`text-sm font-bold uppercase laptop:text-8xl ${
     dark
       ? "text-black-300 drop-shadow-hugeDark desktop:text-big text-md"

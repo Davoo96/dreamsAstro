@@ -16,23 +16,23 @@ import { PROJECT_DEFINITIONS } from "src/components/project/definitions";
 ---
 
 <Layout title="Dreams Incorporadora">
-  <main>
-    <Navigation client:load items={mainNavigationItems} logoNavigation="#top" />
-    <header
-      class="relative flex items-center justify-center h-dynamic bg-header-image bg-no-repeat bg-100 px-3 tablet:bg-header-desktop-image"
-    >
-      <div class="max-w-7/10">
-        <h1 class="text-center text-2xl text-white desktop:text-lg">
-          O ponto de partida para a <strong>casa dos seus sonhos.</strong>
-        </h1>
-        <Button
-          text="Entre em contato"
-          link="#contact"
-          className="w-[209px] mx-auto"
-        />
-      </div>
-    </header>
+  <Navigation client:load items={mainNavigationItems} logoNavigation="#top" />
+  <header
+    class="relative flex items-center justify-center h-dynamic bg-header-image bg-no-repeat bg-100 px-3 tablet:bg-header-desktop-image"
+  >
+    <div class="max-w-7/10">
+      <h1 class="text-center text-2xl text-white desktop:text-lg">
+        O ponto de partida para a <strong>casa dos seus sonhos.</strong>
+      </h1>
+      <Button
+        text="Entre em contato"
+        link="#contact"
+        className="w-[209px] mx-auto"
+      />
+    </div>
+  </header>
 
+  <main>
     <section
       class="desktop:target:scroll-m-0 target:scroll-m-28 pt-12 desktop:pt-32 max-w-8/10 mx-auto"
       id="about"
@@ -81,8 +81,15 @@ import { PROJECT_DEFINITIONS } from "src/components/project/definitions";
 
     <section class="py-12 bg-black-300 desktop:py-32">
       <div class="max-w-8/10 mx-auto">
-        <Title text="Nosso diferencial" dark />
-        <div class="grid grid-cols-1 desktop:grid-cols-2 gap-6 pt-16">
+        <Title
+          text="Nosso diferencial"
+          dark
+          className="js-animation-on-scroll"
+        />
+        <div
+          data-animate-type="motion-safe:animate-fadeDown"
+          class="grid grid-cols-1 desktop:grid-cols-2 gap-6 pt-16 js-animation-on-scroll"
+        >
           {
             QUALITY_DEFINITIONS.map(quality => (
               <Quality
@@ -114,9 +121,13 @@ import { PROJECT_DEFINITIONS } from "src/components/project/definitions";
         ))
       }
     </section>
-
-    <Contact />
-
-    <Footer />
   </main>
+
+  <Contact />
+
+  <Footer />
+
+  <script>
+    import "../scripts/animationOnScroll.ts";
+  </script>
 </Layout>

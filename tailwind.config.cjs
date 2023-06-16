@@ -3,6 +3,30 @@ module.exports = {
   content: ["./src/**/!(*.test).{js,jsx,ts,tsx,astro}"],
   theme: {
     extend: {
+      animation: {
+        fadeIn: "fadeIn 500ms ease-in forwards",
+        fadeLeft: "fadeLeft 500ms ease-in forwards",
+        fadeRight: "fadeRight 500ms ease-in forwards",
+        fadeDown: "fadeDown 500ms ease-in forwards"
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 }
+        },
+        fadeLeft: {
+          "0%": { opacity: 0, transform: "translateX(200px)" },
+          "100%": { opacity: 1, transform: "translateX(0)" }
+        },
+        fadeRight: {
+          "0%": { opacity: 0, transform: "translateX(-200px)" },
+          "100%": { opacity: 1, transform: "translateX(0)" }
+        },
+        fadeDown: {
+          "0%": { opacity: 0, transform: "translateY(-200px)" },
+          "100%": { opacity: 1, transform: "translateY(0)" }
+        }
+      },
       fontFamily: {
         Montserrat: ["Montserrat", "sans-serif"]
       },
@@ -76,6 +100,12 @@ module.exports = {
         dynamic: "100dvh"
       }
     }
+  },
+  varaints: {
+    animation: ["motion-safe"]
+  },
+  purge: {
+    enabled: true
   },
   plugins: []
 };
