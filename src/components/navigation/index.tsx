@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import DreamsLogo from "../../components/logos/dreamsIncorporadora";
+import DreamsLogo from "../icons/dreamsIncorporadora";
 import Item from "./item";
 
 export type NavigationItemsProps = {
@@ -19,7 +19,7 @@ const Navigation = ({ items, logoNavigation }: NavigationItemsProps) => {
     window.addEventListener("scroll", updatePosition);
     updatePosition();
     return () => window.removeEventListener("scroll", updatePosition);
-  }, []);
+  }, [scrollPosition]);
 
   return (
     <nav

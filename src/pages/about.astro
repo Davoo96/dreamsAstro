@@ -1,0 +1,79 @@
+---
+import Featured from "@components/featured/featured.astro";
+import { aboutUsNavigationItems } from "@components/navigation/definitions";
+import Service from "@components/service/service.astro";
+import Title from "@components/title/title.astro";
+import headerHouse from "@images/pht-05.png";
+import Layout from "@layouts/Layout.astro";
+import { SERVICE_DEFINITIONS } from "@components/service/definitions";
+import { VALUE_DEFINITIONS } from "@components/value/definitions";
+import Value from "@components/value/value";
+---
+
+<Layout title="Sobre nós" items={aboutUsNavigationItems} logoNavigation="/">
+  <header
+    class="bg-black-300 h-dynamic flex items-center justify-center md:mb-96"
+  >
+    <Title text="Sobre nós" mediumFont dark class="" />
+    <img
+      src={headerHouse}
+      alt="A white colored house with a palm tree in front of it and two cars parked in the garage"
+      class="w-full max-w-[982px] max-h-[596px] absolute left-1/2 transform -translate-x-1/2 -bottom-[24rem]"
+    />
+  </header>
+  <section
+    class="desktop:target:scroll-m-0 target:scroll-m-28 pt-12 desktop:pt-32 max-w-8/10 mx-auto"
+  >
+    <div class="flex items-center justify-between mb-12 gap-6 desktop:mb-32">
+      <p
+        class="basis-fit-content font-bold text-orange-300 text-base desktop:text-2xl"
+      >
+        Dreams Incorporadora - sua escolha para a casa dos sonhos.
+      </p>
+      <p class="basis-fit-content text-2xl">
+        Dreams Incorporadora é uma empresa que tem como objetivo garantir não
+        apenas a excelência na qualidade física, mas também de proporcionar uma
+        experiência inesquecível. Fruto de um sonho construído com muito
+        esforço, dedicação e aprendizagem, a empresa busca ser referência no
+        segmento, através da construção de imóveis de alto padrão e excelente
+        custo benefício, sempre visando a qualidade técnica e inovação em seus
+        serviços.
+      </p>
+    </div>
+
+    <Featured
+      title="Missão:"
+      text="Compromisso em construir imóveis de qualidade, pensando no bem estar do nosso cliente. "
+    />
+  </section>
+
+  <section class="desktop:pb-32 max-w-8/10 mx-auto">
+    <Title mediumFont text="Serviços" className="text-center" />
+    <div
+      class="grid grid-cols-1 desktop:grid-cols-2 gap-6 pt-16 mt-24 js-animation-on-scroll"
+    >
+      {
+        SERVICE_DEFINITIONS.map(service => (
+          <Service
+            title={service.title}
+            backgroundImage={service.backgroundImage}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="py-12 mb-12 bg-black-300 desktop:mb-32 desktop:py-32">
+    <div class="max-w-8/10 mx-auto">
+      <Title text="Nossos Valores" mediumFont dark />
+
+      <div class="grid grid-cols-2 laptop:grid-cols-4 gap-28 mt-24">
+        {
+          VALUE_DEFINITIONS.map(value => (
+            <Value client:load icon={value.icon} label={value.label} />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>

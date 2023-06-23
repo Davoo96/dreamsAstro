@@ -4,9 +4,8 @@ export const mainNavigationItems = [
   { text: "Contato", url: "#contact" }
 ];
 
-export const jabuticabeiraItems = [
-  { text: "momor", url: "google.com" },
-  { text: "Vamos", url: "#" },
-  { text: "Morar", url: "#" },
-  { text: "Juntos!", url: "#" }
+export const aboutUsNavigationItems = [
+  { text: "Início", url: "/" },
+  { text: "Sobre nós", url: "#" },
+  { text: "Contato", url: "#" }
 ];

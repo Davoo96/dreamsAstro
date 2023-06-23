@@ -4,10 +4,10 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        fadeIn: "fadeIn 500ms ease-in forwards",
-        fadeLeft: "fadeLeft 500ms ease-in forwards",
-        fadeRight: "fadeRight 500ms ease-in forwards",
-        fadeDown: "fadeDown 500ms ease-in forwards"
+        fadeIn: "fadeIn 1000ms ease-in forwards",
+        fadeLeft: "fadeLeft 1000ms ease-in forwards",
+        fadeRight: "fadeRight 1000ms ease-in forwards",
+        fadeDown: "fadeDown 1000ms ease-in forwards"
       },
       keyframes: {
         fadeIn: {
@@ -55,7 +55,11 @@ module.exports = {
           "linear-gradient(#1f2224, transparent), url('/src/assets/pictures/pht-04.png')",
         view: "linear-gradient(#1f2224, 80%, transparent), url('/src/assets/pictures/mobile-03.png')",
         "view-desktop":
-          "linear-gradient(#1f2224, transparent), url('/src/assets/pictures/pht-36.png')"
+          "linear-gradient(#1f2224, transparent), url('/src/assets/pictures/pht-36.png')",
+        incorporation: "url('/src/assets/pictures/pht-07.png')",
+        construction: "url('/src/assets/pictures/pht-08.png')",
+        management: "url('/src/assets/pictures/pht-09.png')",
+        projects: "url('/src/assets/pictures/pht-10.png')"
       },
       backgroundSize: {
         100: "100% 100%"
@@ -98,6 +102,9 @@ module.exports = {
       },
       spacing: {
         dynamic: "100dvh"
+      },
+      flexBasis: {
+        "fit-content": "fit-content"
       }
     }
   },

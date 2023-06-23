@@ -1,0 +1,18 @@
+---
+import type { ServiceEnum, ServiceProps } from "./types";
+
+const backgroundStrategy: { [key in ServiceEnum]: string } = {
+  INCORPORATION: "bg-incorporation",
+  CONSTRUCTION: "bg-construction",
+  MANAGEMENT: "bg-management",
+  PROJECTS: "bg-projects"
+};
+
+const { title, backgroundImage } = Astro.props as ServiceProps;
+---
+
+<div
+  class={`w-full bg-no-repeat bg-contain max-w-[578px] ${backgroundStrategy[backgroundImage]}`}
+>
+  <h2 class="py-52 text-lg text-center font-bold text-white">{title}</h2>
+</div>

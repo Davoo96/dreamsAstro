@@ -1,22 +1,22 @@
 ---
-import Project from "../components/project/project.astro";
-import houseOne from "../assets/pictures/pht-01.png";
-import houseTwo from "../assets/pictures/pht-02.png";
-import Button from "../components/button/button.astro";
-import Featured from "../components/featured/featured.astro";
-import Navigation from "../components/navigation";
-import { mainNavigationItems } from "../components/navigation/definitions";
-import Quality from "../components/quality/quality.astro";
-import Title from "../components/title/title.astro";
-import Layout from "../layouts/Layout.astro";
-import Footer from "../components/footer/footer.astro";
-import Contact from "../components/contact/contact.astro";
-import { QUALITY_DEFINITIONS } from "../components/quality/definitions";
-import { PROJECT_DEFINITIONS } from "src/components/project/definitions";
+import { PROJECT_DEFINITIONS } from "@components/project/definitions";
+import houseOne from "@images/pht-01.png";
+import houseTwo from "@images/pht-02.png";
+import Button from "@components/button/button.astro";
+import Featured from "@components/featured/featured.astro";
+import { mainNavigationItems } from "@components/navigation/definitions";
+import Project from "@components/project/project.astro";
+import { QUALITY_DEFINITIONS } from "@components/quality/definitions";
+import Quality from "@components/quality/quality.astro";
+import Title from "@components/title/title.astro";
+import Layout from "@layouts/Layout.astro";
 ---
 
-<Layout title="Dreams Incorporadora">
-  <Navigation client:load items={mainNavigationItems} logoNavigation="#top" />
+<Layout
+  title="Dreams Incorporadora"
+  items={mainNavigationItems}
+  logoNavigation="#top"
+>
   <header
     class="relative flex items-center justify-center h-dynamic bg-header-image bg-no-repeat bg-100 px-3 tablet:bg-header-desktop-image"
   >
@@ -84,6 +84,7 @@ import { PROJECT_DEFINITIONS } from "src/components/project/definitions";
         <Title
           text="Nosso diferencial"
           dark
+          mediumFont
           className="js-animation-on-scroll"
         />
         <div
@@ -122,10 +123,6 @@ import { PROJECT_DEFINITIONS } from "src/components/project/definitions";
       }
     </section>
   </main>
-
-  <Contact />
-
-  <Footer />
 
   <script>
     import "../scripts/animationOnScroll.ts";

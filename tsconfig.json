@@ -20,7 +20,13 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "skipLibCheck": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@images/*": ["src/assets/pictures/*"],
+      "@icons/*": ["src/assets/icons/*"]
+    }
   },
   "types": ["node", "jest", "@testing-library/jest-dom", "vitest/globals"],
   "include": ["src/**/*"],

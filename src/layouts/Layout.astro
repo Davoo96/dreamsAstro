@@ -1,9 +1,13 @@
 ---
-export interface Props {
-  title: string;
-}
+import Navigation, { NavigationItemsProps } from "../components/navigation";
+import Footer from "@components/footer/footer.astro";
+import Contact from "@components/contact/contact.astro";
 
-const { title } = Astro.props;
+type Props = {
+  title: string;
+} & NavigationItemsProps;
+
+const { title, items, logoNavigation } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -22,7 +26,10 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    <Navigation client:load items={items} logoNavigation={logoNavigation} />
     <slot />
+    <Contact />
+    <Footer />
   </body>
 </html>
 <style is:global>
