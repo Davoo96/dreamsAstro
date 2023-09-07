@@ -31,6 +31,7 @@ module.exports = {
         Montserrat: ["Montserrat", "sans-serif"]
       },
       fontSize: {
+        none: "0",
         md: ["2rem", "1"],
         lg: ["3.5rem", "1.25"],
         big: ["10rem", "1"],
@@ -96,8 +97,7 @@ module.exports = {
         "8/10": "80%"
       },
       screens: {
-        tablet: "640px",
-        laptop: "1024px",
+        tablet: "768px",
         desktop: "1280px"
       },
       spacing: {
@@ -110,9 +110,6 @@ module.exports = {
   },
   varaints: {
     animation: ["motion-safe"]
-  },
-  purge: {
-    enabled: true
   },
   plugins: []
 };

@@ -22,7 +22,7 @@ const iconsStrategy: { [key in ValueEnum]: React.ReactNode } = {
 const Value = ({ icon, label }: ValueProps) => (
   <div className="flex justify-center items-center flex-col flex-nowrap">
     {iconsStrategy[icon]}
-    <h3 className="text-orange-300 font-bold text-base mt-4">{label}</h3>
+    <p className="text-orange-300 font-bold text-base mt-4">{label}</p>
   </div>
 );
 

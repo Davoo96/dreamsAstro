@@ -10,12 +10,14 @@ import { QUALITY_DEFINITIONS } from "@components/quality/definitions";
 import Quality from "@components/quality/quality.astro";
 import Title from "@components/title/title.astro";
 import Layout from "@layouts/Layout.astro";
+import { Image } from "astro:assets";
 ---
 
 <Layout
   title="Dreams Incorporadora"
   items={mainNavigationItems}
   logoNavigation="#top"
+  description="Somos uma empresa focalizada em inovação e controle de qualidade, que utiliza métodos construtivos eficientes, com prazos de execução acelerados. Construimos sonhos! Ajudamos a tornar realidade o desejo de adquirir um imóvel diferenciado e único!"
 >
   <header
     class="relative flex items-center justify-center h-dynamic bg-header-image bg-no-repeat bg-100 px-3 tablet:bg-header-desktop-image"
@@ -37,7 +39,7 @@ import Layout from "@layouts/Layout.astro";
       class="desktop:target:scroll-m-0 target:scroll-m-28 pt-12 desktop:pt-32 max-w-8/10 mx-auto"
       id="about"
     >
-      <Title text="Quem somos" className="laptop:text-9xl" />
+      <Title text="Quem somos" className="tablet:text-9xl" />
       <div
         class="flex flex-wrap pt-16 gap-12 desktop:gap-0 desktop:pt-24 desktop:flex-nowrap desktop:justify-center desktop:flex-row-reverse"
       >
@@ -66,8 +68,13 @@ import Layout from "@layouts/Layout.astro";
         <div
           class="relative flex justify-center items-center flex-wrap gap-6 mx-auto desktop:block desktop:pr-32 desktop:before:content-[''] desktop:before:border desktop:before:border-black-300 desktop:before:w-[393px] desktop:before:h-[408px] desktop:before:absolute desktop:before:top-2/4 desktop:before:-translate-y-2/4 desktop:before:left-[40%] desktop:before:-translate-x-2/4"
         >
-          <img class="relative w-full max-w-[379px]" src={houseOne} />
-          <img
+          <Image
+            alt="imagem de uma casa"
+            class="relative w-full max-w-[379px]"
+            src={houseOne}
+          />
+          <Image
+            alt="imagem de uma casa"
             class="relative w-full max-w-[379px] desktop:ml-24 mt-11"
             src={houseTwo}
           />

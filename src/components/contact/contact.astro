@@ -2,6 +2,7 @@
 import phone from "../../assets/icons/icon-telefone.svg";
 import home from "../../assets/icons/icon-home.svg";
 import email from "../../assets/icons/icon-email.svg";
+import { Image } from "astro:assets";
 ---
 
 <div
@@ -10,7 +11,7 @@ import email from "../../assets/icons/icon-email.svg";
 >
   <div class="text-center desktop:text-left">
     <h2
-      class="text-2xl mb-10 uppercase font-bold text-black-300 md:text-5xl mt-[66px]"
+      class="text-2xl mb-10 uppercase font-bold text-black-300 tablet:text-5xl desktop:mt-[66px]"
     >
       Fale Conosco
     </h2>
@@ -60,6 +61,7 @@ import email from "../../assets/icons/icon-email.svg";
     class="desktop:pt-[450px] desktop:pb-0 pb-[450px] pt-12 px-4 text-white bg-black-300 desktop:bg-transparent w-full"
   >
     <iframe
+      title="mapa de localização da Dreams Incorporadora"
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3537.8830519885346!2d-48.51213278494175!3d-27.535092182863636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9527470d7aaf826b%3A0x4d3572e8bdd0a188!2sSquare%20SC!5e0!3m2!1sen!2sus!4v1682432453134!5m2!1sen!2sus"
       style="border:0;"
       allowfullscreen=""
@@ -69,9 +71,9 @@ import email from "../../assets/icons/icon-email.svg";
     ></iframe>
     <div class="text-xs">
       <div class="flex gap-4 items-center flex-nowrap max-w-[479px] mx-auto">
-        <img src={home} alt="" />
+        <Image src={home} alt="" />
         <div>
-          <h4 class="font-bold">Endereço</h4>
+          <h3 class="font-bold">Endereço</h3>
           <p>
             Rod. José Carlos Daux 5500, Lagoa A Sala 315 - Saco Grande,
             Florianopolis - SC
@@ -82,16 +84,16 @@ import email from "../../assets/icons/icon-email.svg";
         class="flex flex-row flex-wrap gap-6 tablet:flex-nowrap tablet:gap-14 pt-6 items-center max-w-[479px] mx-auto"
       >
         <div class="flex flex-nowrap items-center gap-4">
-          <img src={phone} alt="" />
+          <Image src={phone} alt="" />
           <div>
-            <h4 class="font-bold">Telefone</h4>
+            <h3 class="font-bold">Telefone</h3>
             <p>48-3067-7957</p>
           </div>
         </div>
         <div class="flex flex-nowrap items-center gap-4">
-          <img src={email} alt="" />
+          <Image src={email} alt="" />
           <div>
-            <h4 class="font-bold">E-Mail</h4>
+            <h3 class="font-bold">E-Mail</h3>
             <p>gerencia@dreamsincorporadora.com.br</p>
           </div>
         </div>

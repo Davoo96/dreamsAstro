@@ -1,13 +1,17 @@
 ---
-import Navigation, { NavigationItemsProps } from "../components/navigation";
+import Navigation, {
+  type NavigationItemsProps
+} from "../components/navigation";
 import Footer from "@components/footer/footer.astro";
 import Contact from "@components/contact/contact.astro";
+import { ViewTransitions } from "astro:transitions";
 
-type Props = {
+interface Props extends NavigationItemsProps {
   title: string;
-} & NavigationItemsProps;
+  description: string;
+}
 
-const { title, items, logoNavigation } = Astro.props;
+const { title, items, logoNavigation, description } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -23,17 +27,19 @@ const { title, items, logoNavigation } = Astro.props;
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body>
     <Navigation client:load items={items} logoNavigation={logoNavigation} />
     <slot />
     <Contact />
     <Footer />
+    <style is:global>
+      html {
+        font-family: Montserrat, sans-serif;
+      }
+    </style>
   </body>
 </html>
-<style is:global>
-  html {
-    font-family: Montserrat, sans-serif;
-  }
-</style>
