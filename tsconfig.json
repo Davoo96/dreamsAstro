@@ -21,6 +21,7 @@
     "noUnusedParameters": true,
     "skipLibCheck": true,
     "baseUrl": ".",
+    "verbatimModuleSyntax": true,
     "paths": {
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],

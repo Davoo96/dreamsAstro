@@ -1,4 +1,4 @@
-import { ValueEnum, ValueProps } from "./types";
+import { ValueEnum, type ValueProps } from "./types";
 
 export const VALUE_DEFINITIONS: ValueProps[] = [
   {

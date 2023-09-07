@@ -9,5 +9,15 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   integrations: [react(), tailwind()],
-  site: "https://dreamsincorporadora.com.br/"
+  site: "https://dreamsincorporadora.com.br/",
+  image: {
+    service: {
+      entrypoint: "astro/assets/services/noop"
+    }
+  },
+  plugins: [
+    {
+      name: "@astrojs/ts-plugin"
+    }
+  ]
 });

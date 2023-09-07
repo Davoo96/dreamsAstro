@@ -24,16 +24,18 @@ const Navigation = ({ items, logoNavigation }: NavigationItemsProps) => {
   return (
     <nav
       className={`fixed z-50 p-7 w-full bg-black-300 ease-in-out duration-500 ${
-        scrollPosition > HEADER_HEIGHT ? "md:bg-black-300" : "md:bg-transparent"
+        scrollPosition > HEADER_HEIGHT
+          ? "tablet:bg-black-300"
+          : "tablet:bg-transparent"
       }`}
     >
-      <div className="w-full md:flex md:justify-between md:items-center md:max-w-5xl md:m-auto">
+      <div className="w-full tablet:flex tablet:justify-between tablet:items-center tablet:max-w-5xl tablet:m-auto">
         <header className="flex gap-5 items-center justify-between">
           <a aria-label="Dreams Logo" href={logoNavigation}>
             <DreamsLogo />
           </a>
           <button
-            className={`relative flex rounded px-6 py-4 my-2.5 before:content-[''] before:h-0.5 before:w-8 before:bg-white before:absolute before:inline-block before:transition-transform before:duration-300 before:shadow-copy-x before:left-2 md:hidden ${
+            className={`relative flex rounded px-6 py-4 my-2.5 before:content-[''] before:h-0.5 before:w-8 before:bg-white before:absolute before:inline-block before:transition-transform before:duration-300 before:shadow-copy-x before:left-2 tablet:hidden ${
               isOpen ? "before:rotate-90" : ""
             }`}
             type="button"
@@ -46,7 +48,7 @@ const Navigation = ({ items, logoNavigation }: NavigationItemsProps) => {
           />
         </header>
         <ul
-          className={`pl-7 mt-7 text-white uppercase w-full left-0 absolute transition-opacity duration-500 ease-in-out md:visible md:pl-0 md:mt-0 md:opacity-100 md:w-auto md:flex md:items-center md:gap-7 md:relative ${
+          className={`pl-7 mt-7 text-white uppercase w-full left-0 absolute transition-opacity duration-500 ease-in-out tablet:visible tablet:pl-0 tablet:mt-0 tablet:opacity-100 tablet:w-auto tablet:flex tablet:items-center tablet:gap-7 tablet:relative ${
             isOpen ? "visible opacity-100 bg-black-300" : "invisible opacity-0"
           }`}
         >
@@ -54,7 +56,7 @@ const Navigation = ({ items, logoNavigation }: NavigationItemsProps) => {
             <Item
               key={index}
               onClick={() => setIsOpen(false)}
-              className="mb-5 font-bold text-2xl relative md:mb-0 md:after:content-[''] md:after:absolute md:after:w-full md:after:h-0.5 md:after:scale-0 md:after:left-0 md:after:origin-right md:after:bottom-0 md:after:transition-transform md:after:duration-300 md:after:ease-in md:after:bg-orange-300 md:hover:after:scale-100 md:hover:after:origin-left"
+              className="mb-5 font-bold text-2xl relative tablet:mb-0 tablet:after:content-[''] tablet:after:absolute tablet:after:w-full tablet:after:h-0.5 tablet:after:scale-0 tablet:after:left-0 tablet:after:origin-right tablet:after:bottom-0 tablet:after:transition-transform tablet:after:duration-300 tablet:after:ease-in tablet:after:bg-orange-300 tablet:hover:after:scale-100 tablet:hover:after:origin-left"
               {...item}
             />
           ))}
