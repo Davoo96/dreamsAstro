@@ -60,7 +60,8 @@ module.exports = {
         incorporation: "url('/src/assets/pictures/pht-07.png')",
         construction: "url('/src/assets/pictures/pht-08.png')",
         management: "url('/src/assets/pictures/pht-09.png')",
-        projects: "url('/src/assets/pictures/pht-10.png')"
+        projects: "url('/src/assets/pictures/pht-10.png')",
+        "bg-header-linear-gradient": "linear-gradient(, transparent)"
       },
       backgroundSize: {
         100: "100% 100%"
@@ -72,6 +73,7 @@ module.exports = {
         },
         black: {
           300: "#1f2224",
+          100: "#1f2224",
           50: "linear-gradient(#000, transparent)"
         },
         gray: {

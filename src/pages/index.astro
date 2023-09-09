@@ -1,5 +1,6 @@
 ---
 import { PROJECT_DEFINITIONS } from "@components/project/definitions";
+import heroImage from "@images/JanduiCasas5.png";
 import houseOne from "@images/pht-01.png";
 import houseTwo from "@images/pht-02.png";
 import Button from "@components/button/button.astro";
@@ -20,7 +21,7 @@ import { Image } from "astro:assets";
   description="Somos uma empresa focalizada em inovação e controle de qualidade, que utiliza métodos construtivos eficientes, com prazos de execução acelerados. Construimos sonhos! Ajudamos a tornar realidade o desejo de adquirir um imóvel diferenciado e único!"
 >
   <header
-    class="relative flex items-center justify-center h-dynamic bg-header-image bg-no-repeat bg-100 px-3 tablet:bg-header-desktop-image"
+    class="relative flex items-center justify-center h-dynamic px-3 bg-gradient-to-b from-black-100 to-transparent"
   >
     <div class="max-w-7/10">
       <h1 class="text-center text-2xl text-white desktop:text-lg">
@@ -30,6 +31,11 @@ import { Image } from "astro:assets";
         text="Entre em contato"
         link="#contact"
         className="w-[209px] mx-auto"
+      />
+      <Image
+        src={heroImage}
+        alt="Imagem de casa com duas garagens."
+        class="absolute inset-0 w-full h-full object-cover z-[-1]"
       />
     </div>
   </header>

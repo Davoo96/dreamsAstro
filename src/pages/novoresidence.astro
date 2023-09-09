@@ -1,0 +1,64 @@
+---
+import { mainNavigationItems } from "@components/navigation/definitions";
+import Carousel from "@components/carousel/carousel.astro";
+import novoResidence from "@images/pht-03.png";
+import test1 from "@images/pht-04.png";
+import test2 from "@images/pht-05.png";
+import Layout from "@layouts/Layout.astro";
+import { Image } from "astro:assets";
+---
+
+<Layout
+  title="Dreams Incorporadora"
+  items={mainNavigationItems}
+  logoNavigation="/"
+  description="O Novo Residence é a escolha certa para quem quer protagonizar os melhores momentos de sua vida."
+>
+  <header
+    class="relative flex items-center justify-start h-dynamic bg-100 px-3 bg-gradient-to-b from-black-100 to-transparent"
+  >
+    <div class="max-w-7/10 z-40" transition:name="Novo Residence">
+      <h2
+        class="text-start uppercase font-bold text-2xl text-white tablet:text-lg tablet:pl-32"
+      >
+        <span class="block">Novo</span>
+        <span class="block">Residence</span>
+      </h2>
+    </div>
+    <Image
+      src={novoResidence}
+      alt="Imagem de casa com duas garagens."
+      class="absolute inset-0 w-full h-full object-cover z-[-1]"
+    />
+  </header>
+
+  <main>
+    <section
+      class="desktop:target:scroll-m-0 target:scroll-m-28 pt-12 desktop:pt-32 max-w-8/10 mx-auto"
+      id="about"
+    >
+      <h2 class="text-orange-300 text-5xl text-center font-bold pb-20">
+        O protagonista é você!
+      </h2>
+      <p class="text-2xl mb-9">
+        O Novo Residence é a escolha certa para quem quer protagonizar os
+        melhores momentos de sua vida.
+      </p>
+      <p class="text-2xl">
+        Sinta o glamour, elegância e qualidade neste empreendimento de <strong
+          >3 casas independentes</strong
+        >, com espaços amplos e planejados situado em João Paulo, um dos bairros
+        mais nobres de Florianópolis com alta segurança, tranquilidade e fácil
+        acesso às praias e centro da cidade.
+      </p>
+    </section>
+
+    <section class="py-12 desktop:py-32">
+      <Carousel images={[novoResidence, test1, test2]} />
+    </section>
+  </main>
+
+  <script>
+    import "../scripts/animationOnScroll.ts";
+  </script>
+</Layout>

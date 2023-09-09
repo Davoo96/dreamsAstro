@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+import leftArrow from "@icons/ico-arrow-left.svg";
+import rightArrow from "@icons/ico-arrow-right.svg";
+
+type CarouselProps = {
+  images: ImageMetadata[];
+};
+
+const { images } = Astro.props as CarouselProps;
+---
+
+<div>
+  <ul>
+    {
+      images.map(image => (
+        <li>
+          <Image src={image} alt="Imagem de uma casa" />
+        </li>
+      ))
+    }
+  </ul>
+  <div class="flex items-center justify-center p-2 gap-2">
+    <button class="text-none p-2"
+      ><Image src={leftArrow} alt="Anterior" /></button
+    >
+    <div class="p-2 flex flex-nowrap items-center justify-center gap-[10px]">
+      {
+        images.map(image => (
+          <button class="text-none w-4 h-4 rounded-full bg-orange-300">
+            {image.src}
+          </button>
+        ))
+      }
+    </div>
+    <button class="text-none p-2"
+      ><Image src={rightArrow} alt="Próximo" /></button
+    >
+  </div>
+</div>
