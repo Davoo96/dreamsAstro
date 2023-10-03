@@ -7,7 +7,10 @@ export default defineConfig({
     globals: true,
     css: true,
     environment: "jsdom",
-    setupFiles: ["./tests/setupVitest.ts"]
+    setupFiles: ["./tests/setupVitest.ts"],
+    coverage: {
+      provider: "v8"
+    }
   },
   plugins: [react()]
 });

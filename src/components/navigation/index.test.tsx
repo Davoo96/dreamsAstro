@@ -1,8 +1,8 @@
-import { act, render, screen } from "@testing-library/react";
-import Navigation from ".";
-import { mainNavigationItems } from "./definitions";
+import { act, screen } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
-import userEvent from "@testing-library/user-event";
+import Navigation from ".";
+import { render } from "../../tests/utilities";
+import { mainNavigationItems } from "./definitions";
 
 describe("Navigation component", () => {
   test("should render correctly", () => {
@@ -17,9 +17,9 @@ describe("Navigation component", () => {
   });
 
   test("should open and close", async () => {
-    render(<Navigation items={mainNavigationItems} logoNavigation="#" />);
-
-    const user = userEvent.setup({ delay: null });
+    const { user } = render(
+      <Navigation items={mainNavigationItems} logoNavigation="#" />
+    );
 
     const expandButton = screen.getByRole("button", {
       name: "Menu expand and close button",
