@@ -17,7 +17,7 @@ jobs:
         name: Install pnpm
         with:
           version: 8.7.5
-          run_install: false
+          run_install: true
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps
       - name: Run Playwright tests
