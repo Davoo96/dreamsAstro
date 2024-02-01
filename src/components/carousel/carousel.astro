@@ -10,31 +10,42 @@ type CarouselProps = {
 const { images } = Astro.props as CarouselProps;
 ---
 
-<div>
-  <ul>
-    {
-      images.map(image => (
-        <li>
-          <Image src={image} alt="Imagem de uma casa" />
-        </li>
-      ))
-    }
-  </ul>
-  <div class="flex items-center justify-center p-2 gap-2">
-    <button class="text-none p-2"
-      ><Image src={leftArrow} alt="Anterior" /></button
-    >
-    <div class="p-2 flex flex-nowrap items-center justify-center gap-[10px]">
+<div class="h-full">
+  <div
+    class="overflow-hidden mx-auto tablet:w-[calc(100%+-27%)] w-300px shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]"
+  >
+    <ul class="flex items-center gap-10 translate-x-[270px]" data-carousel>
       {
         images.map(image => (
-          <button class="text-none w-4 h-4 rounded-full bg-orange-300">
-            {image.src}
+          <li class="w-[300px]" data-carousel-item="">
+            <Image
+              src={image}
+              alt="Imagem de uma casa"
+              class="h-[400px] rounded-[40px] max-w-none w-[300px]"
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <div class="flex items-center justify-center px-2 pt-6 pb-10 gap-2">
+    <button class="text-none p-2" data-carousel-prev>
+      <Image src={leftArrow} alt="Anterior" />
+    </button>
+    <div class="p-2 flex flex-nowrap items-center justify-center gap-[10px]">
+      {
+        images.map((_, index) => (
+          <button
+            class="text-none w-4 h-4 rounded-full bg-orange-50 duration-300 transition-all"
+            data-carousel-dots={index + 1}
+          >
+            {index + 1}
           </button>
         ))
       }
     </div>
-    <button class="text-none p-2"
-      ><Image src={rightArrow} alt="Próximo" /></button
-    >
+    <button class="text-none p-2" data-carousel-next>
+      <Image src={rightArrow} alt="Próximo" />
+    </button>
   </div>
 </div>

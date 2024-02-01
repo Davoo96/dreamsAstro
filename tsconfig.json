@@ -31,5 +31,5 @@
   },
   "types": ["node", "jest", "@testing-library/jest-dom", "vitest/globals"],
   "include": ["src/**/*", "e2e/example.spec.ts"],
-  "exclude": ["node_modules", "dist", "src/test"]
+  "exclude": ["node_modules", "dist", "src/test", "src/layouts/Layout.astro"]
 }

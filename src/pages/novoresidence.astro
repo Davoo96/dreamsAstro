@@ -4,6 +4,10 @@ import Carousel from "@components/carousel/carousel.astro";
 import novoResidence from "@images/pht-03.png";
 import test1 from "@images/pht-04.png";
 import test2 from "@images/pht-05.png";
+import test3 from "@images/pht-08.png";
+import test4 from "@images/pht-07.png";
+import test5 from "@images/pht-08.png";
+import test6 from "@images/pht-09.png";
 import Layout from "@layouts/Layout.astro";
 import { Image } from "astro:assets";
 ---
@@ -54,11 +58,11 @@ import { Image } from "astro:assets";
     </section>
 
     <section class="py-12 desktop:py-32">
-      <Carousel images={[novoResidence, test1, test2]} />
+      <Carousel
+        images={[novoResidence, test1, test2, test3, test4, test5, test6]}
+      />
     </section>
   </main>
 
-  <script>
-    import "../scripts/animationOnScroll.ts";
-  </script>
+  <script src="../scripts/carousel.ts"></script>
 </Layout>
