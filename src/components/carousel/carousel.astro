@@ -11,10 +11,8 @@ const { images } = Astro.props as CarouselProps;
 ---
 
 <div class="h-full">
-  <div
-    class="overflow-hidden mx-auto tablet:w-[calc(100%+-27%)] w-300px shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]"
-  >
-    <ul class="flex items-center gap-10 translate-x-[270px]" data-carousel>
+  <div class="overflow-hidden mx-auto w-[300px] tablet:w-[calc(100%+-27%)]">
+    <ul class="flex items-center gap-10" data-carousel>
       {
         images.map(image => (
           <li class="w-[300px]" data-carousel-item="">
