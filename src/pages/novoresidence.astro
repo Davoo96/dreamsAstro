@@ -1,6 +1,6 @@
 ---
 import { mainNavigationItems } from "@components/navigation/definitions";
-import Carousel from "@components/carousel/carousel.astro";
+import Carousel from "../components/carousel";
 import novoResidence from "@images/pht-03.png";
 import test1 from "@images/pht-04.png";
 import test2 from "@images/pht-05.png";
@@ -8,8 +8,23 @@ import test3 from "@images/pht-08.png";
 import test4 from "@images/pht-07.png";
 import test5 from "@images/pht-08.png";
 import test6 from "@images/pht-09.png";
+import leftArrow from "@icons/ico-arrow-left.svg";
+import rightArrow from "@icons/ico-arrow-right.svg";
 import Layout from "@layouts/Layout.astro";
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
+
+const optimizedBackground1 = await getImage({
+  src: novoResidence,
+  format: "webp"
+});
+const optimizedBackground2 = await getImage({ src: test1, format: "webp" });
+const optimizedBackground3 = await getImage({ src: test2, format: "webp" });
+const optimizedBackground4 = await getImage({ src: test3, format: "webp" });
+const optimizedBackground5 = await getImage({ src: test4, format: "webp" });
+const optimizedBackground6 = await getImage({ src: test5, format: "webp" });
+const optimizedBackground7 = await getImage({ src: test6, format: "webp" });
+const optimizedLeftArrow = await getImage({ src: leftArrow, format: "webp" });
+const optimizedRightArrow = await getImage({ src: rightArrow, format: "webp" });
 ---
 
 <Layout
@@ -59,7 +74,37 @@ import { Image } from "astro:assets";
 
     <section class="py-12 desktop:py-32">
       <Carousel
-        images={[novoResidence, test1, test2, test3, test4, test5, test6]}
+        client:load
+        slides={[
+          { src: optimizedBackground1.src, name: "novoResidense" },
+          { src: optimizedBackground2.src, name: "test1" },
+          { src: optimizedBackground3.src, name: "test2" },
+          { src: optimizedBackground4.src, name: "test3" },
+          { src: optimizedBackground5.src, name: "test4" },
+          { src: optimizedBackground6.src, name: "test5" },
+          { src: optimizedBackground7.src, name: "test6" }
+        ]}
+        rightArrow={optimizedRightArrow.src}
+        leftArrow={optimizedLeftArrow.src}
+        id="gallery"
+      />
+    </section>
+
+    <section class="py-12 desktop:py-32">
+      <Carousel
+        client:load
+        slides={[
+          { src: optimizedBackground1.src, name: "novoResidense" },
+          { src: optimizedBackground2.src, name: "test1" },
+          { src: optimizedBackground3.src, name: "test2" },
+          { src: optimizedBackground4.src, name: "test3" },
+          { src: optimizedBackground5.src, name: "test4" },
+          { src: optimizedBackground6.src, name: "test5" },
+          { src: optimizedBackground7.src, name: "test6" }
+        ]}
+        rightArrow={optimizedRightArrow.src}
+        leftArrow={optimizedLeftArrow.src}
+        id="plants"
       />
     </section>
   </main>
