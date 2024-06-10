@@ -77,7 +77,8 @@ module.exports = {
           50: "linear-gradient(#000, transparent)"
         },
         gray: {
-          300: "#e0e0e0"
+          300: "#e0e0e0",
+          100: "#ccc"
         }
       },
       dropShadow: {

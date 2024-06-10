@@ -1,58 +1,60 @@
+import ArrowLeft from "@components/icons/arrowLeft";
+import ArrowRight from "@components/icons/arrowRight";
 import { useState } from "react";
 
 const Carousel = ({
   slides,
   id,
-  leftArrow,
-  rightArrow
+  isDarkBackground = false
 }: {
   slides: { src: string; name: string }[];
   id: string;
-  leftArrow: string;
-  rightArrow: string;
+  isDarkBackground?: boolean;
 }) => {
   const [current, setCurrent] = useState(0);
 
-  const prevSlide = () => {
-    if (current === 0) setCurrent(slides.length - 1);
-    else setCurrent(current - 1);
-  };
+  const prevSlide = () =>
+    setCurrent(current === 0 ? slides.length - 1 : current - 1);
 
-  const nextSlide = () => {
-    if (current === slides.length - 1) setCurrent(0);
-    else setCurrent(current + 1);
-  };
+  const nextSlide = () =>
+    setCurrent(current === slides.length - 1 ? 0 : current + 1);
 
-  const onDotClick = (index: number) => {
-    return setCurrent(index);
-  };
+  const onDotClick = (index: number) => setCurrent(index);
 
   return (
     <div className="overflow-hidden">
       <ul
         key={id}
-        className={`flex transition ease-out duration-300`}
-        style={{ transform: `translateX(-${current * 300}px)` }}
+        className={`overflow-hidden relative my-0 mx-auto flex ease-out duration-300 w-[300px] h-[400px] tablet:w-[800px]`}
       >
-        {slides.map(slides => (
-          <li key={slides.name}>
+        {slides.map((slides, index) => (
+          <li
+            key={slides.name}
+            className={`absolute duration-500 ease-in-out ${
+              current === index ? "opacity-100 scale-100" : "opacity-0 scale-90"
+            }`}
+          >
             <img
               src={slides.src}
               alt="Imagem de uma casa"
-              className="h-[400px] rounded-[40px] max-w-none w-[300px]"
+              className="h-[400px] rounded-[40px] max-w-none w-[300px] tablet:w-[800px]"
             />
           </li>
         ))}
       </ul>
       <div className="flex items-center justify-center px-2 pt-6 pb-10 gap-2">
         <button className="text-none p-2" onClick={prevSlide}>
-          <img src={leftArrow} alt="Anterior" />
+          <ArrowLeft
+            className={isDarkBackground ? "text-white" : "text-[#1F2224]"}
+          />
         </button>
         <div className="p-2 flex flex-nowrap items-center justify-center gap-[10px]">
           {slides.map((_, index) => (
             <button
-              className={`text-none w-4 h-4 rounded-full bg-orange-50 duration-300 transition-all ${
-                index === current ? "bg-orange-300 scale-110" : ""
+              className={`text-none w-4 h-4 rounded-full duration-300 transition-all ${
+                index === current
+                  ? "bg-orange-300 scale-110"
+                  : "bg-gray-100 scale-75"
               }`}
               key={"circle" + index}
               onClick={() => onDotClick(index)}
@@ -62,7 +64,9 @@ const Carousel = ({
           ))}
         </div>
         <button className="text-none p-2" onClick={nextSlide}>
-          <img src={rightArrow} alt="Próximo" />
+          <ArrowRight
+            className={isDarkBackground ? "text-white" : "text-[#1F2224]"}
+          />
         </button>
       </div>
     </div>

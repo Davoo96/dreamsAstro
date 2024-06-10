@@ -32,7 +32,7 @@ const Navigation = ({ items, logoNavigation }: NavigationItemsProps) => {
       <div className="w-full tablet:flex tablet:justify-between tablet:items-center tablet:max-w-5xl tablet:m-auto">
         <header className="flex gap-5 items-center justify-between">
           <a aria-label="Dreams Logo" href={logoNavigation}>
-            <DreamsLogo />
+            <DreamsLogo className="w-[220px] tablet:w-full" />
           </a>
           <button
             className={`relative flex rounded px-6 py-4 my-2.5 before:content-[''] before:h-0.5 before:w-8 before:bg-white before:absolute before:inline-block before:transition-transform before:duration-300 before:shadow-copy-x before:left-2 tablet:hidden ${

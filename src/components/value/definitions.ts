@@ -34,3 +34,38 @@ export const VALUE_DEFINITIONS: ValueProps[] = [
     icon: ValueEnum.INNOVATION
   }
 ];
+
+export const NOVO_RESIDENCE_DEFINITIONS: ValueProps[] = [
+  {
+    label: "172 M²",
+    icon: ValueEnum.METRICS
+  },
+  {
+    label: "3 SUÍTES",
+    icon: ValueEnum.SUITES
+  },
+  {
+    label: "VARANDA NA SUÍTE MASTER",
+    icon: ValueEnum.BALCONY
+  },
+  {
+    label: "COZINHA AMERICANA",
+    icon: ValueEnum.KITCHEN
+  },
+  {
+    label: "LAVANDEIRA",
+    icon: ValueEnum.LAUNDRY
+  },
+  {
+    label: "ÁREA GOURMET",
+    icon: ValueEnum.GOURMET
+  },
+  {
+    label: "PÉ DIREITODUPLO",
+    icon: ValueEnum.DOUBLE_ARROWS
+  },
+  {
+    label: "2 VAGAS DE GARAGEM",
+    icon: ValueEnum.GARAGE
+  }
+];

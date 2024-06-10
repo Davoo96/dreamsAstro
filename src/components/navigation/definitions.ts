@@ -7,5 +7,11 @@ export const mainNavigationItems = [
 export const aboutUsNavigationItems = [
   { text: "Início", url: "/" },
   { text: "Sobre nós", url: "#" },
-  { text: "Contato", url: "#" }
+  { text: "Contato", url: "#contact" }
+];
+
+export const projectNavitagionItems = [
+  { text: "Início", url: "/" },
+  { text: "Sobre o projeto", url: "#about" },
+  { text: "Contato", url: "#contact" }
 ];

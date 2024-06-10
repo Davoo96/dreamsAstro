@@ -1,17 +1,17 @@
 ---
-import { mainNavigationItems } from "@components/navigation/definitions";
-import Carousel from "../components/carousel";
+import { projectNavitagionItems } from "@components/navigation/definitions";
+import Plants from "@components/plants/plants.astro";
+import Value from "@components/value";
+import { NOVO_RESIDENCE_DEFINITIONS } from "@components/value/definitions";
 import novoResidence from "@images/pht-03.png";
 import test1 from "@images/pht-04.png";
 import test2 from "@images/pht-05.png";
-import test3 from "@images/pht-08.png";
 import test4 from "@images/pht-07.png";
-import test5 from "@images/pht-08.png";
+import { default as test3, default as test5 } from "@images/pht-08.png";
 import test6 from "@images/pht-09.png";
-import leftArrow from "@icons/ico-arrow-left.svg";
-import rightArrow from "@icons/ico-arrow-right.svg";
 import Layout from "@layouts/Layout.astro";
 import { Image, getImage } from "astro:assets";
+import Carousel from "../components/carousel";
 
 const optimizedBackground1 = await getImage({
   src: novoResidence,
@@ -23,13 +23,11 @@ const optimizedBackground4 = await getImage({ src: test3, format: "webp" });
 const optimizedBackground5 = await getImage({ src: test4, format: "webp" });
 const optimizedBackground6 = await getImage({ src: test5, format: "webp" });
 const optimizedBackground7 = await getImage({ src: test6, format: "webp" });
-const optimizedLeftArrow = await getImage({ src: leftArrow, format: "webp" });
-const optimizedRightArrow = await getImage({ src: rightArrow, format: "webp" });
 ---
 
 <Layout
   title="Dreams Incorporadora"
-  items={mainNavigationItems}
+  items={projectNavitagionItems}
   logoNavigation="/"
   description="O Novo Residence é a escolha certa para quem quer protagonizar os melhores momentos de sua vida."
 >
@@ -56,14 +54,16 @@ const optimizedRightArrow = await getImage({ src: rightArrow, format: "webp" });
       class="desktop:target:scroll-m-0 target:scroll-m-28 pt-12 desktop:pt-32 max-w-8/10 mx-auto"
       id="about"
     >
-      <h2 class="text-orange-300 text-5xl text-center font-bold pb-20">
+      <h2
+        class="text-orange-300 text-2xl tablet:text-5xl text-center font-bold pb-8 tablet:pb-20 uppercase"
+      >
         O protagonista é você!
       </h2>
-      <p class="text-2xl mb-9">
+      <p class="text-base tablet:text-2xl mb-9">
         O Novo Residence é a escolha certa para quem quer protagonizar os
         melhores momentos de sua vida.
       </p>
-      <p class="text-2xl">
+      <p class="text-base tablet:text-2xl">
         Sinta o glamour, elegância e qualidade neste empreendimento de <strong
           >3 casas independentes</strong
         >, com espaços amplos e planejados situado em João Paulo, um dos bairros
@@ -84,28 +84,21 @@ const optimizedRightArrow = await getImage({ src: rightArrow, format: "webp" });
           { src: optimizedBackground6.src, name: "test5" },
           { src: optimizedBackground7.src, name: "test6" }
         ]}
-        rightArrow={optimizedRightArrow.src}
-        leftArrow={optimizedLeftArrow.src}
         id="gallery"
       />
+      <div
+        class="grid grid-cols-2 pt-12 justify-items-center tablet:grid-cols-4 gap-6 max-w-8/10 mx-auto laptop:pt-16 laptop:mt-24"
+      >
+        {
+          NOVO_RESIDENCE_DEFINITIONS.map(value => (
+            <Value client:load icon={value.icon} label={value.label} />
+          ))
+        }
+      </div>
     </section>
 
-    <section class="py-12 desktop:py-32">
-      <Carousel
-        client:load
-        slides={[
-          { src: optimizedBackground1.src, name: "novoResidense" },
-          { src: optimizedBackground2.src, name: "test1" },
-          { src: optimizedBackground3.src, name: "test2" },
-          { src: optimizedBackground4.src, name: "test3" },
-          { src: optimizedBackground5.src, name: "test4" },
-          { src: optimizedBackground6.src, name: "test5" },
-          { src: optimizedBackground7.src, name: "test6" }
-        ]}
-        rightArrow={optimizedRightArrow.src}
-        leftArrow={optimizedLeftArrow.src}
-        id="plants"
-      />
+    <section class="py-12 mb-32 bg-black-300 desktop:py-32">
+      <Plants />
     </section>
   </main>
 </Layout>
