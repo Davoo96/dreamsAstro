@@ -69,3 +69,73 @@ export const NOVO_RESIDENCE_DEFINITIONS: ValueProps[] = [
     icon: ValueEnum.GARAGE
   }
 ];
+
+export const JABUTICABEIRA_DEFINITIONS: ValueProps[] = [
+  {
+    label: "125 M2 - 138 M2",
+    icon: ValueEnum.METRICS
+  },
+  {
+    label: "3 QUARTOS (1 SUÍTE)",
+    icon: ValueEnum.SUITES
+  },
+  {
+    label: "LAVABO NO PRIMERO PAVIMENTO",
+    icon: ValueEnum.BALCONY
+  },
+  {
+    label: "COZINHA INTEGRADA",
+    icon: ValueEnum.KITCHEN
+  },
+  {
+    label: "LAVANDEIRA",
+    icon: ValueEnum.LAUNDRY
+  },
+  {
+    label: "ÁREA GOURMET",
+    icon: ValueEnum.GOURMET
+  },
+  {
+    label: "PISO EM PORCELANATO",
+    icon: ValueEnum.DOUBLE_ARROWS
+  },
+  {
+    label: "1 VAGA DE GARAGEM",
+    icon: ValueEnum.GARAGE
+  }
+];
+
+export const VIEW_DEFINITIONS: ValueProps[] = [
+  {
+    label: "130 M2 - 140 M2",
+    icon: ValueEnum.METRICS
+  },
+  {
+    label: "3 QUARTOS (1 SUÍTE)",
+    icon: ValueEnum.SUITES
+  },
+  {
+    label: "CASAS ESTILO CONDOMINIO",
+    icon: ValueEnum.BALCONY
+  },
+  {
+    label: "COZINHA INTEGRADA",
+    icon: ValueEnum.KITCHEN
+  },
+  {
+    label: "LAVANDEIRA",
+    icon: ValueEnum.LAUNDRY
+  },
+  {
+    label: "ÁREA GOURMET",
+    icon: ValueEnum.GOURMET
+  },
+  {
+    label: "PÉ DIREITO DUPLO",
+    icon: ValueEnum.DOUBLE_ARROWS
+  },
+  {
+    label: "1 VAGA DE GARAGEM",
+    icon: ValueEnum.GARAGE
+  }
+];

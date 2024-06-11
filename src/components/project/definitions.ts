@@ -16,10 +16,10 @@ export const PROJECT_DEFINITIONS: ProjectProps[] = [
     text: "Localizado no Ribeirão Da Ilha, a 10 min da praia do Novo Campeche e 4 min da praia do Morro das Pedras. Um empreendimento com elegância, qualidade, e arquitetura moderna.",
     subtext: "",
     background: jabuticabeira,
-    link: "/jabuticabeiraii"
+    link: "/jabuticabeira"
   },
   {
-    title: "View",
+    title: "View Residence",
     text: "Um empreendimento visionário, para experimentar a vida com um novo olhar.",
     subtext: "",
     background: view,

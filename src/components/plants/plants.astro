@@ -2,43 +2,19 @@
 import Carousel from "@components/carousel";
 import Title from "@components/title/title.astro";
 import location from "@icons/location.svg";
-import novoResidence from "@images/pht-03.png";
-import test1 from "@images/pht-04.png";
-import test2 from "@images/pht-05.png";
-import test4 from "@images/pht-07.png";
-import { default as test3, default as test5 } from "@images/pht-08.png";
-import test6 from "@images/pht-09.png";
 import Image from "astro/components/Image.astro";
-import { getImage } from "astro:assets";
 
-const optimizedBackground1 = await getImage({
-  src: novoResidence,
-  format: "webp"
-});
-const optimizedBackground2 = await getImage({ src: test1, format: "webp" });
-const optimizedBackground3 = await getImage({ src: test2, format: "webp" });
-const optimizedBackground4 = await getImage({ src: test3, format: "webp" });
-const optimizedBackground5 = await getImage({ src: test4, format: "webp" });
-const optimizedBackground6 = await getImage({ src: test5, format: "webp" });
-const optimizedBackground7 = await getImage({ src: test6, format: "webp" });
+interface CarouselProps {
+  slides: { src: string; name: string }[];
+  address: string;
+}
+
+const { slides, address } = Astro.props as CarouselProps;
 ---
 
 <div class="flex items-center flex-col gap-9 tablet:gap-20">
   <Title text="Plantas" mediumFont dark />
-  <Carousel
-    isDarkBackground
-    client:load
-    slides={[
-      { src: optimizedBackground1.src, name: "novoResidense" },
-      { src: optimizedBackground2.src, name: "test1" },
-      { src: optimizedBackground3.src, name: "test2" },
-      { src: optimizedBackground4.src, name: "test3" },
-      { src: optimizedBackground5.src, name: "test4" },
-      { src: optimizedBackground6.src, name: "test5" },
-      { src: optimizedBackground7.src, name: "test6" }
-    ]}
-    id="plants"
-  />
+  <Carousel isDarkBackground client:load slides={slides} id="plants" />
   <div class="max-w-8/10 mx-auto">
     <Image
       src={location}
@@ -48,7 +24,7 @@ const optimizedBackground7 = await getImage({ src: test6, format: "webp" });
     <p
       class="inline-block text-base text-center tablet:text-2xl text-white mt-4 desktop:mt-0 tablet:ml-6"
     >
-      Dalil Salim Mansur, nº xxx - Bairro João Paulo - Florianópolis/SC
+      {address}
     </p>
   </div>
 </div>

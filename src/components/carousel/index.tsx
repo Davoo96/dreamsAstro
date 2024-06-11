@@ -25,7 +25,7 @@ const Carousel = ({
     <div className="overflow-hidden">
       <ul
         key={id}
-        className={`overflow-hidden relative my-0 mx-auto flex ease-out duration-300 w-[300px] h-[400px] tablet:w-[800px]`}
+        className={`overflow-hidden relative my-0 mx-auto flex ease-out duration-300 w-[250px] h-[280px] tablet:h-[400px] tablet:w-[800px]`}
       >
         {slides.map((slides, index) => (
           <li
@@ -37,7 +37,7 @@ const Carousel = ({
             <img
               src={slides.src}
               alt="Imagem de uma casa"
-              className="h-[400px] rounded-[40px] max-w-none w-[300px] tablet:w-[800px]"
+              className="h-[280px] rounded-[40px] max-w-none w-[250px] tablet:h-[400px] tablet:w-[800px]"
             />
           </li>
         ))}
