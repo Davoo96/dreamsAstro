@@ -36,7 +36,10 @@ const valueIconsStrategy: { [key in ValueEnum]: React.ReactNode } = {
 };
 
 const Value = ({ icon, label }: ValueProps) => (
-  <div className="flex justify-start items-center flex-col flex-nowrap">
+  <div
+    data-animate-type="motion-safe:animate-fadeRight"
+    className="flex justify-start items-center flex-col flex-nowrap"
+  >
     {valueIconsStrategy[icon]}
     <p className="text-orange-300 font-bold text-xs tablet:text-base mt-4 text-center">
       {label}

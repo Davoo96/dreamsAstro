@@ -7,7 +7,8 @@ module.exports = {
         fadeIn: "fadeIn 1000ms ease-in forwards",
         fadeLeft: "fadeLeft 1000ms ease-in forwards",
         fadeRight: "fadeRight 1000ms ease-in forwards",
-        fadeDown: "fadeDown 1000ms ease-in forwards"
+        fadeDown: "fadeDown 1000ms ease-in forwards",
+        fadeUp: "fadeUp 1000ms ease-in forwards"
       },
       keyframes: {
         fadeIn: {
@@ -24,6 +25,10 @@ module.exports = {
         },
         fadeDown: {
           "0%": { opacity: 0, transform: "translateY(-200px)" },
+          "100%": { opacity: 1, transform: "translateY(0)" }
+        },
+        fadeUp: {
+          "0%": { opacity: 0, transform: "translateY(200px)" },
           "100%": { opacity: 1, transform: "translateY(0)" }
         }
       },

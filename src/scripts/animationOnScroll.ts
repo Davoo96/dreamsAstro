@@ -1,5 +1,5 @@
 const animationOnScroll = () => {
-  const targets = document.querySelectorAll(".js-animation-on-scroll");
+  const targets = document.querySelectorAll("[data-animate-type]");
 
   const callback = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((entry: IntersectionObserverEntry) => {

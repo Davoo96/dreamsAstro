@@ -24,7 +24,10 @@ import { Image } from "astro:assets";
     class="relative flex items-center justify-center h-dynamic px-3 bg-gradient-to-b from-black-100 to-transparent"
   >
     <div class="max-w-7/10">
-      <h1 class="text-center text-2xl text-white desktop:text-lg">
+      <h1
+        data-animate-type="motion-safe:animate-fadeIn"
+        class="text-center text-2xl text-white desktop:text-lg js-animation-on-scroll"
+      >
         O ponto de partida para a <strong>casa dos seus sonhos.</strong>
       </h1>
       <Button
@@ -121,7 +124,10 @@ import { Image } from "astro:assets";
       class="desktop:target:scroll-m-0 target:scroll-m-28 py-12 desktop:py-32"
       id="enterprises"
     >
-      <Title className="text-center mb-12" text="Projetos" />
+      <Title
+        className="text-center mb-12 js-animation-on-scroll"
+        text="Projetos"
+      />
 
       {
         PROJECT_DEFINITIONS.map(project => (
