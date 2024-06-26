@@ -35,6 +35,57 @@ const { title, items, logoNavigation, description } = Astro.props;
     >
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <script src="../scripts/app.ts"></script>
+    <script
+      is:inline
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script>
+      (function () {
+        emailjs.init({
+          publicKey: "lStbQMTsqEXepNUhL"
+        });
+      })();
+    </script>
+    <script>
+      function initEmail() {
+        const contactForm = document.getElementById("contact-form");
+        const submitButton = document.getElementById("submit-button");
+        const nameInput = document.getElementById("user_name");
+        const emailInput = document.getElementById("user_email");
+        const phoneInput = document.getElementById("contact_number");
+        const messageInput = document.getElementById("message");
+
+        contactForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          submitButton.innerText = "Enviando...";
+
+          const inputFields = {
+            name: nameInput.value,
+            email: emailInput.value,
+            contact: phoneInput.value,
+            message: messageInput.value
+          };
+
+          emailjs.send("service_3fz9obo", "template_2w8i027", inputFields).then(
+            () => {
+              nameInput.value = "";
+              emailInput.value = "";
+              phoneInput.value = "";
+              messageInput.value = "";
+              submitButton.innerText = "Mensagem enviada com sucesso";
+              console.log("SUCCESS!");
+            },
+            error => {
+              console.log("FAILED...", error);
+            }
+          );
+        });
+      }
+      window.onload = initEmail;
+      document.addEventListener("astro:after-swap", initEmail);
+    </script>
     <!-- Request Metrics -->
     <script>
       (function (t, e, n, a) {
