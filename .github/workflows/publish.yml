@@ -46,4 +46,7 @@ jobs:
           git commit -m "Build: $(git rev-parse --short HEAD)"
           git push origin build --force
         env:
+          REPO: self
+          BRANCH: build
+          FOLDER: dist
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
