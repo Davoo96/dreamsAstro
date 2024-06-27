@@ -88,10 +88,10 @@ module.exports = {
       },
       dropShadow: {
         huge: [
-          "-1px -1px 0 #cccccc",
-          "1px -1px 0 #cccccc",
-          "-1px 1px 0 #cccccc",
-          "1px 1px 0 #cccccc"
+          "-1px -1px 0 #1f2224",
+          "1px -1px 0 #1f2224",
+          "-1px 1px 0 #1f2224",
+          "1px 1px 0 #1f2224"
         ],
         hugeDark: [
           "-1px -1px 0 #dadada",
