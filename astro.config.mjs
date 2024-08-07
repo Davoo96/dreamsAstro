@@ -19,9 +19,7 @@ export default defineConfig({
       entrypoint: "astro/assets/services/noop"
     }
   },
-  plugins: [
-    {
-      name: "@astrojs/ts-plugin"
-    }
-  ]
+  plugins: [{
+    name: "@astrojs/ts-plugin"
+  }]
 });
