@@ -2,6 +2,7 @@ import { type ProjectProps } from "./types";
 import novoResidence from "@images/pht-03.png";
 import jabuticabeira from "@images/pht-04.png";
 import view from "@images/pht-36.png";
+import rooftop from "@images/pht-52.jpg";
 
 export const PROJECT_DEFINITIONS: ProjectProps[] = [
   {
@@ -24,5 +25,12 @@ export const PROJECT_DEFINITIONS: ProjectProps[] = [
     subtext: "",
     background: view,
     link: "/view"
+  },
+  {
+    title: "Rooftop Residence",
+    text: "Uma nova forma de desfrutar o pôr do sol",
+    subtext: "",
+    background: rooftop,
+    link: "/rooftopresidence"
   }
 ];
