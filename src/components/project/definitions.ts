@@ -27,10 +27,10 @@ export const PROJECT_DEFINITIONS: ProjectProps[] = [
     link: "/view"
   },
   {
-    title: "Rooftop Residence",
+    title: "Rooftop Residences I",
     text: "Uma nova forma de desfrutar o pôr do sol",
     subtext: "",
     background: rooftop,
-    link: "/rooftopresidence"
+    link: "/rooftopresidences"
   }
 ];
