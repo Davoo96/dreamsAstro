@@ -174,3 +174,38 @@ export const ROOFTOP_RESIDENCE_DEFINITIONS: ValueProps[] = [
     icon: ValueEnum.GARAGE
   }
 ];
+
+export const ROOFTOP_RESIDENCEII_DEFINITIONS: ValueProps[] = [
+  {
+    label: "120 M2 – 162 M2",
+    icon: ValueEnum.METRICS
+  },
+  {
+    label: "2-3 QUARTOS (1 SUÍTE)",
+    icon: ValueEnum.SUITES
+  },
+  {
+    label: "ROOFTOP PRIVATIVO",
+    icon: ValueEnum.BALCONY
+  },
+  {
+    label: "COZINHA INTEGRADA",
+    icon: ValueEnum.KITCHEN
+  },
+  {
+    label: "LAVANDEIRA INTEGRADA",
+    icon: ValueEnum.LAUNDRY
+  },
+  {
+    label: "PÁTIO PRIVATIVO",
+    icon: ValueEnum.GOURMET
+  },
+  {
+    label: "PÉ DIREITO DUPLO NAS ESCADAS",
+    icon: ValueEnum.DOUBLE_ARROWS
+  },
+  {
+    label: "1 VAGA DE GARAGEM",
+    icon: ValueEnum.GARAGE
+  }
+];

@@ -3,6 +3,7 @@ import novoResidence from "@images/pht-03.png";
 import jabuticabeira from "@images/pht-04.png";
 import view from "@images/pht-36.png";
 import rooftop from "@images/pht-52.jpg";
+import rooftop2 from "@images/rooftopPortalRibeirao.jpg";
 
 export const PROJECT_DEFINITIONS: ProjectProps[] = [
   {
@@ -32,5 +33,12 @@ export const PROJECT_DEFINITIONS: ProjectProps[] = [
     subtext: "",
     background: rooftop,
     link: "/rooftopresidences"
+  },
+  {
+    title: "Rooftop Residences II",
+    text: "Experimentar o pôr do sol ao lado de vistas deslumbrantes",
+    subtext: "",
+    background: rooftop2,
+    link: "/rooftopresidencesii"
   }
 ];
