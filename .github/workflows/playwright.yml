@@ -16,27 +16,36 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
+          cache: "pnpm"
 
-      - name: Install pnpm globally
+      - name: Install pnpm
         run: |
-          sudo npm install -g pnpm@8.7.5
-          echo "PNPM version: $(pnpm --version)"
+          npm install -g pnpm@8.7.5
           echo "PNPM path: $(which pnpm)"
+          echo "PNPM version: $(pnpm --version)"
 
       - name: Install dependencies
         run: |
-          # Force pnpm usage regardless of package.json
-          pnpm install --ignore-scripts
-          pnpm add -D @tailwindcss/postcss@latest
+          pnpm install
+          pnpm add -D @tailwindcss/postcss@latest tailwindcss@^3.0.0
+          pnpm dlx npm-check-updates --upgrade --filter "/^@?tailwind/" --target greatest
 
-      - name: Install Playwright Browsers
-        run: pnpm exec playwright install --with-deps
+      - name: Configure PostCSS
+        run: |
+          if [ -f postcss.config.js ]; then
+            echo "Updating postcss.config.js"
+            sed -i "s/require('tailwindcss')/require('@tailwindcss\/postcss')/g" postcss.config.js
+          else
+            echo "No postcss.config.js found, creating one"
+            echo "module.exports = { plugins: { '@tailwindcss/postcss': {}, autoprefixer: {} } }" > postcss.config.js
+          fi
 
-      - name: Run Playwright tests
+      - name: Run tests
         run: |
           export NODE_ENV=test
           pnpm exec playwright test
 
+      # 6. Upload report
       - uses: actions/upload-artifact@v4
         if: always()
         with:
