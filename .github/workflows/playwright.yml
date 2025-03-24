@@ -21,13 +21,15 @@ jobs:
         run: |
           sudo npm install -g pnpm@8.7.5
           echo "PNPM path: $(which pnpm)" >> $GITHUB_PATH
+          pnpm --version
 
       - name: Install dependencies
         run: |
           pnpm install
           pnpm add -D @tailwindcss/postcss@latest tailwindcss@^3.0.0
+          echo "module.exports = { plugins: { '@tailwindcss/postcss': {}, autoprefixer: {} } }" > postcss.config.js
 
-      - name: Install Playwright
+      - name: Install Playwright browsers
         run: |
           pnpm exec playwright install --with-deps
           pnpm exec playwright install-deps
