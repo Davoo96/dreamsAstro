@@ -27,7 +27,9 @@ jobs:
           pnpm --version || echo "pnpm not installed correctly"
 
       - name: Install dependencies
-        run: pnpm install
+        run: |
+          corepack enable
+          pnpm install
 
       - name: Build
         run: pnpm run build
