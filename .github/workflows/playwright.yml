@@ -12,21 +12,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Enable Corepack
-        run: |
-          sudo corepack enable
-          corepack prepare pnpm@8.7.5 --activate
-
-      - name: Setup Node.js
+      # Force pnpm regardless of package.json setting
+      - name: Setup Node.js with pnpm
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: 'pnpm'
+          cache: "pnpm"
+          always-auth: false
 
-      - name: Verify pnpm
+      # Explicitly override packageManager setting
+      - name: Configure pnpm
         run: |
-          echo "PNPM version: $(pnpm --version)"
-          which pnpm
+          sudo corepack enable
+          corepack prepare pnpm@8.7.5 --activate
+          echo "Overriding packageManager setting"
+          npm pkg delete packageManager
 
       - name: Install dependencies
         run: |
