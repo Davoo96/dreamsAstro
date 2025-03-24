@@ -27,7 +27,6 @@ jobs:
         run: |
           pnpm install
           pnpm add -D @tailwindcss/postcss@latest tailwindcss@latest
-          pnpm exec tailwindcss init
 
       - name: Run tests
         run: pnpm test

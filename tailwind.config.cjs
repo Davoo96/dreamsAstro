@@ -119,5 +119,5 @@ module.exports = {
   varaints: {
     animation: ["motion-safe"]
   },
-  plugins: [require('@tailwindcss/postcss')]
+  plugins: []
 };
