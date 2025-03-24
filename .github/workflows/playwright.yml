@@ -17,38 +17,27 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install and Verify pnpm
+      - name: Install pnpm
         run: |
-          # Install pnpm using corepack (most reliable method)
-          sudo corepack enable
-          corepack prepare pnpm@8.7.5 --activate
+          sudo npm install -g pnpm@8.7.5
+          echo "PNPM path: $(which pnpm)" >> $GITHUB_PATH
+          pnpm --version
 
-          # Alternative installation if corepack fails
-          if ! command -v pnpm &> /dev/null; then
-            echo "Corepack method failed, trying npm install..."
-            sudo npm install -g pnpm@8.7.5
-          fi
-
-          # Verify installation
-          echo "PNPM path: $(which pnpm)"
-          echo "PNPM version: $(pnpm --version)"
-
-          # Ensure pnpm is in PATH
-          echo "$(which pnpm)" >> $GITHUB_PATH
-
-      - name: Setup Project
+      - name: Install dependencies
         run: |
-          # Force pnpm usage regardless of package.json
-          pnpm install --ignore-scripts
+          pnpm install
           pnpm add -D @tailwindcss/postcss@latest tailwindcss@^3.0.0
-
-          # Update PostCSS config
           echo "module.exports = { plugins: { '@tailwindcss/postcss': {}, autoprefixer: {} } }" > postcss.config.js
 
-      - name: Run Tests
+      - name: Install Playwright browsers
+        run: |
+          pnpm exec playwright install --with-deps
+          pnpm exec playwright install-deps
+
+      - name: Run Playwright tests
         run: |
           export NODE_ENV=test
-          pnpm exec playwright test
+          pnpm exec playwright test --debug
 
       - uses: actions/upload-artifact@v4
         if: always()
