@@ -1,4 +1,4 @@
-import { IconName, QualitiesProps } from "./types";
+import { IconName, type QualitiesProps } from "./types";
 
 export const QUALITY_DEFINITIONS: QualitiesProps[] = [
   {
