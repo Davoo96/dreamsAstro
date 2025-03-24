@@ -1,5 +1,4 @@
 name: Run Unit Tests
-
 on:
   push:
     branches: [master]
@@ -9,23 +8,25 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
-        name: Checkout
 
-      - uses: pnpm/action-setup@v2
-        name: Install pnpm
-        with:
-          version: 8.7.5
-          run_install: false
-
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: pnpm
+          cache: "pnpm"
 
-      - run: pnpm install
-      - run: pnpm test
-      - run: pnpm run build
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.7.5
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run tests
+        run: pnpm test
+
+      - name: Build
+        run: pnpm run build
