@@ -21,16 +21,10 @@ jobs:
           node-version: 18
           cache: "pnpm"
 
-      - name: Verify pnpm installation
-        run: |
-          which pnpm || echo "pnpm not found"
-          pnpm --version || echo "pnpm not installed correctly"
-
       - name: Install dependencies
         run: |
           corepack enable
           pnpm install
-          pnpm add -D @tailwindcss/postcss@latest
 
       - name: Build
         run: pnpm run build
