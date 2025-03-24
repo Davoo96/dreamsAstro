@@ -22,9 +22,15 @@ jobs:
           node-version: 18
           cache: "pnpm"
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.7.5
+
       - name: Install dependencies
         run: |
           pnpm install
+          pnpm add -D @tailwindcss/postcss@latest
 
       - name: Run tests
         run: pnpm test
