@@ -11,18 +11,23 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js with pnpm
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: "pnpm"
-          always-auth: false
 
-      - name: Configure pnpm
+      - name: Install pnpm
         run: |
+          # Install using corepack (most reliable method)
           sudo corepack enable
           corepack prepare pnpm@8.7.5 --activate
-          npm pkg delete packageManager
+
+          # Verify installation
+          echo "PNPM path: $(which pnpm)"
+          echo "PNPM version: $(pnpm --version)"
+
+          # Ensure pnpm is in PATH for subsequent steps
+          echo "$(which pnpm)" >> $GITHUB_PATH
 
       - name: Install dependencies
         run: |
