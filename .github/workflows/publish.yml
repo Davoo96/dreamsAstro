@@ -21,11 +21,6 @@ jobs:
           node-version: 18
           cache: "pnpm"
 
-      - name: Verify pnpm
-        run: |
-          echo "PNPM version: $(pnpm --version)"
-          which pnpm
-
       - name: Install dependencies
         run: |
           pnpm install
@@ -41,9 +36,13 @@ jobs:
 
       - name: Push to build branch
         run: |
-          git switch --orphan build
-          git rm -rf .
+          git checkout --orphan temp-build
+          git commit --allow-empty -m "Initial commit"
+          git branch -D build || true
+          git branch -m build
+          
           cp -r dist/* .
+          
           git add -A
           git commit -m "Build: $(git rev-parse --short HEAD)"
           git push origin build --force

@@ -30,7 +30,6 @@ jobs:
       - name: Install dependencies
         run: |
           pnpm install
-          pnpm add -D @tailwindcss/postcss@latest tailwindcss@latest
 
       - name: Run tests
         run: pnpm test
