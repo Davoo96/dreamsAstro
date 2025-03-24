@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: git-checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Pnpm Setup
         uses: pnpm/action-setup@v2
@@ -29,8 +31,21 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      - name: Push
-        uses: s0/git-publish-subdir-action@develop
+      - name: Clean and Force Push to Build Branch
+        run: |
+          git push origin --delete build || true
+          git branch -D build || true
+          
+          git checkout --orphan build
+          
+          cp -r dist/* .
+          
+          # Commit and force push
+          git add -A
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git commit -m "Build: $(git rev-parse --short HEAD)"
+          git push origin build --force
         env:
           REPO: self
           BRANCH: build
