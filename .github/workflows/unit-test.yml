@@ -1,4 +1,5 @@
 name: Run Unit Tests
+
 on:
   push:
     branches: [master]
@@ -11,18 +12,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js with pnpm
+      - name: Setup pnpm
+        run: |
+          sudo corepack enable
+          corepack prepare pnpm@8.7.5 --activate
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: "pnpm"
-          always-auth: false
-
-      - name: Configure pnpm
-        run: |
-          sudo corepack enable
-          corepack prepare pnpm@8.7.5 --activate
-          npm pkg delete packageManager
 
       - name: Install dependencies
         run: |
