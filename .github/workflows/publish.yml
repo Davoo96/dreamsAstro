@@ -18,16 +18,18 @@ jobs:
 
       - name: Install pnpm
         run: |
-          # Install using corepack (most reliable method)
-          sudo corepack enable
-          corepack prepare pnpm@8.7.5 --activate
+          # Install pnpm globally using npm
+          sudo npm install -g pnpm@8.7.5
 
           # Verify installation
           echo "PNPM path: $(which pnpm)"
           echo "PNPM version: $(pnpm --version)"
 
-          # Ensure pnpm is in PATH for subsequent steps
+          # Explicitly add to PATH (critical step)
           echo "$(which pnpm)" >> $GITHUB_PATH
+
+          # Verify PATH contains pnpm
+          echo "PATH: $PATH"
 
       - name: Install dependencies
         run: |
