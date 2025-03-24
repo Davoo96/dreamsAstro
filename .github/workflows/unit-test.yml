@@ -11,12 +11,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        id: pnpm-setup
-        with:
-          version: 8.7.5
-          run_install: false
+      - name: Enable Corepack
+        run: |
+          sudo corepack enable
+          corepack prepare pnpm@8.7.5 --activate
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -24,10 +22,15 @@ jobs:
           node-version: 18
           cache: "pnpm"
 
+      - name: Verify pnpm
+        run: |
+          echo "PNPM version: $(pnpm --version)"
+          which pnpm
+
       - name: Install dependencies
         run: |
-          corepack enable
           pnpm install
+          pnpm add -D @tailwindcss/postcss@latest
 
       - name: Run tests
         run: pnpm test
