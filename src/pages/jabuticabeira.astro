@@ -1,0 +1,121 @@
+---
+import { projectNavitagionItems } from "@components/navigation/definitions";
+import Plants from "@components/plants/plants.astro";
+import Value from "@components/value";
+import { JABUTICABEIRA_DEFINITIONS } from "@components/value/definitions";
+import slideImage1 from "@images/pht-04.png";
+import backgroundImage from "@images/pht-19.png";
+import slideImage2 from "@images/pht-27.png";
+import slideImage3 from "@images/pht-29.png";
+import slideImage4 from "@images/pht-30.png";
+import plantSlide2 from "@images/pht-31.png";
+import plantSlide1 from "@images/pht-32.png";
+import Layout from "@layouts/Layout.astro";
+import { Image, getImage } from "astro:assets";
+import Carousel from "../components/carousel";
+
+const optimizedBackground1 = await getImage({
+  src: slideImage1,
+  format: "webp"
+});
+const optimizedBackground2 = await getImage({
+  src: slideImage2,
+  format: "webp"
+});
+const optimizedBackground3 = await getImage({
+  src: slideImage3,
+  format: "webp"
+});
+const optimizedBackground4 = await getImage({
+  src: slideImage4,
+  format: "webp"
+});
+const optimizedPlantSlide1 = await getImage({
+  src: plantSlide1,
+  format: "webp"
+});
+const optimizedPlantSlide2 = await getImage({
+  src: plantSlide2,
+  format: "webp"
+});
+---
+
+<Layout
+  title="Jabuticabeira II"
+  items={projectNavitagionItems}
+  logoNavigation="/"
+  description="Jabuticabeira é a escolha certa para quem quer protagonizar os melhores momentos de sua vida."
+>
+  <header
+    class="relative flex items-center justify-start h-dynamic bg-100 px-3 bg-gradient-to-b from-black-100 to-transparent"
+  >
+    <div class="max-w-7/10 z-40" transition:name="Jabuticabeira ii">
+      <h2
+        class="text-start uppercase font-bold text-2xl text-white tablet:text-lg tablet:pl-32"
+      >
+        <span class="block">Jabuticabeira II</span>
+      </h2>
+    </div>
+    <Image
+      src={backgroundImage}
+      alt="Imagem de casa com duas garagens."
+      class="absolute inset-0 w-full h-full object-cover z-[-1]"
+    />
+  </header>
+
+  <main>
+    <section
+      class="desktop:target:scroll-m-0 target:scroll-m-28 pt-12 desktop:pt-32 max-w-8/10 mx-auto"
+      id="about"
+    >
+      <h2
+        class="text-orange-300 text-2xl tablet:text-5xl text-center font-bold pb-8 tablet:pb-20 uppercase"
+      >
+        Bons momentos são eternos
+      </h2>
+      <p class="text-base tablet:text-2xl mb-9">
+        Um empreendimento único e aconchegante. Perto das melhores praias &
+        restaurantes do sul de Florianópolis. Um lar rodeado por natureza, para
+        familias que procuram uma vida segura, ativa & confortável.
+      </p>
+    </section>
+
+    <section class="py-12 desktop:py-32">
+      <Carousel
+        client:load
+        slides={[
+          { src: optimizedBackground1.src, name: "slide image 1" },
+          { src: optimizedBackground2.src, name: "slide image 2" },
+          { src: optimizedBackground3.src, name: "slide image 3" },
+          { src: optimizedBackground4.src, name: "slide image 4" }
+        ]}
+        id="gallery"
+      />
+      <div
+        class="grid grid-cols-2 pt-12 justify-items-center tablet:grid-cols-4 gap-6 max-w-8/10 mx-auto tablet:pt-16 tablet:mt-24 tablet:gap-16"
+      >
+        {
+          JABUTICABEIRA_DEFINITIONS.map(value => (
+            <Value client:load icon={value.icon} label={value.label} />
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="py-12 mb-32 bg-black-300 desktop:py-32 overflow-hidden">
+      <Plants
+        slides={[
+          {
+            src: optimizedPlantSlide1.src,
+            name: "Planta Inferior Casa 1"
+          },
+          {
+            src: optimizedPlantSlide2.src,
+            name: "Planta Superior Casa 1"
+          }
+        ]}
+        address="R. Jabuticabeiras do Sul, Florianópolis - SC, 88064-076"
+      />
+    </section>
+  </main>
+</Layout>

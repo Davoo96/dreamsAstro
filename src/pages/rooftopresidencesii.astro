@@ -1,0 +1,169 @@
+---
+import { projectNavitagionItems } from "@components/navigation/definitions";
+import Value from "@components/value";
+import { ROOFTOP_RESIDENCEII_DEFINITIONS } from "@components/value/definitions";
+import slideImage1 from "@images/pht-57.jpg";
+import slideImage2 from "@images/pht-58.jpg";
+import slideImage3 from "@images/pht-59.jpg";
+import slideImage4 from "@images/pht-60.jpg";
+import slideImage5 from "@images/pht-61.jpg";
+import slideImage6 from "@images/pht-62.jpg";
+import slideImage7 from "@images/pht-63.jpg";
+import slideImage8 from "@images/dormitorioRooftop.jpg";
+import slideImage9 from "@images/rooftopPortalRibeirao.jpg";
+import Layout from "@layouts/Layout.astro";
+import { Image, getImage } from "astro:assets";
+import Carousel from "../components/carousel";
+import Title from "@components/title/title.astro";
+import location from "@icons/location.svg";
+import ImageComponent from "astro/components/Image.astro";
+
+const optimizedBackground1 = await getImage({
+  src: slideImage1,
+  format: "webp"
+});
+const optimizedBackground2 = await getImage({
+  src: slideImage2,
+  format: "webp"
+});
+const optimizedBackground3 = await getImage({
+  src: slideImage3,
+  format: "webp"
+});
+const optimizedBackground4 = await getImage({
+  src: slideImage4,
+  format: "webp"
+});
+const optimizedBackground5 = await getImage({
+  src: slideImage5,
+  format: "webp"
+});
+const optimizedBackground6 = await getImage({
+  src: slideImage6,
+  format: "webp"
+});
+const optimizedBackground7 = await getImage({
+  src: slideImage7,
+  format: "webp"
+});
+const optimizedBackground8 = await getImage({
+  src: slideImage8,
+  format: "webp"
+});
+const optimizedBackground9 = await getImage({
+  src: slideImage9,
+  format: "webp"
+});
+---
+
+<Layout
+  title="Rooftop Residences I"
+  items={projectNavitagionItems}
+  logoNavigation="/"
+  description="Uma nova forma de desfrutar o pôr do sol"
+>
+  <header
+    class="relative flex items-center justify-start h-dynamic bg-100 px-3 bg-gradient-to-b from-black-100 to-transparent"
+  >
+    <div class="max-w-7/10 z-40" transition:name="Rooftop Residences II">
+      <h2
+        class="text-start uppercase font-bold text-2xl text-white tablet:text-lg tablet:pl-32"
+      >
+        <span class="block">Rooftop</span>
+        <span class="block">Residences II</span>
+      </h2>
+    </div>
+    <Image
+      src={slideImage9}
+      alt="Imagem de casa com duas garagens."
+      class="absolute inset-0 w-full h-full object-cover z-[-1]"
+    />
+  </header>
+
+  <main>
+    <section
+      class="desktop:target:scroll-m-0 target:scroll-m-28 pt-12 desktop:pt-32 max-w-8/10 mx-auto"
+      id="about"
+    >
+      <h2
+        class="text-orange-300 text-2xl tablet:text-5xl text-center font-bold pb-8 tablet:pb-20 uppercase"
+      >
+        Experimentar o pôr do sol ao lado de vistas deslumbrantes
+      </h2>
+      <p class="text-base tablet:text-2xl mb-9">
+        Rooftop Residences 2, a segunda fase de um empreendimento de grande
+        sucesso! Um lugar projetado para oferecer paz, conforto e exclusividade,
+        perfeito para quem aprecia segurança e momentos especiais, como
+        contemplar o pôr do sol. As residências, com design contemporâneo e
+        sofisticado, combinam materiais nobres e uma estética limpa, criando
+        espaços agradáveis e modernos. Os terraços privativos no rooftop e
+        grandes aberturas de vidro integram os ambientes internos com o
+        exterior, proporcionando vistas espetaculares e um ambiente perfeito
+        para relaxar e aproveitar o clima acolhedor da região.
+      </p>
+    </section>
+
+    <section class="py-12 desktop:py-32">
+      <Carousel
+        client:load
+        slides={[
+          { src: optimizedBackground1.src, name: "slide image 1" },
+          { src: optimizedBackground2.src, name: "slide image 2" },
+          { src: optimizedBackground3.src, name: "slide image 3" },
+          { src: optimizedBackground4.src, name: "slide image 4" },
+          { src: optimizedBackground5.src, name: "slide image 5" },
+          { src: optimizedBackground6.src, name: "slide image 6" },
+          { src: optimizedBackground7.src, name: "slide image 7" },
+          { src: optimizedBackground8.src, name: "slide image 8" },
+          { src: optimizedBackground9.src, name: "slide image 9" }
+        ]}
+        id="gallery"
+      />
+      <div
+        class="grid grid-cols-2 pt-12 justify-items-center tablet:grid-cols-4 gap-6 max-w-8/10 mx-auto tablet:pt-16 tablet:mt-24 tablet:gap-16"
+      >
+        {
+          ROOFTOP_RESIDENCEII_DEFINITIONS.map(value => (
+            <Value client:load icon={value.icon} label={value.label} />
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="py-12 mb-32 bg-black-300 desktop:py-32 overflow-hidden">
+      <div class="max-w-8/10 mx-auto overflow-hidden">
+        <Title
+          text="Endereço"
+          dark
+          mediumFont
+          className="js-animation-on-scroll text-center"
+        />
+        <div class="mt-14">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3532.623506929688!2d-48.517827!3d-27.698029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjfCsDQxJzUyLjkiUyA0OMKwMzEnMDQuMiJX!5e0!3m2!1spt-BR!2sbr!4v1734006188556!5m2!1spt-BR!2sbr"
+            width="800"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            class="block mx-auto"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="mt-14 block mx-auto max-w-[927px]">
+            <ImageComponent
+              src={location}
+              alt="icone de localização"
+              class="block mx-auto my-0 tablet:inline-block"
+            />
+            <p
+              data-animate-type="motion-safe:animate-fadeIn"
+              class="block text-base text-center tablet:text-2xl text-white mt-4 desktop:mt-0 tablet:ml-6 tablet:inline-block"
+            >
+              Rua Jabuticabeira do Sul, LT20 Q 16, Ribeirão da Ilha –
+              Florianopolis-SC
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

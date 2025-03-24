@@ -1,0 +1,145 @@
+---
+import { PROJECT_DEFINITIONS } from "@components/project/definitions";
+import heroImage from "@images/JanduiCasas5.png";
+import houseOne from "@images/pht-01.png";
+import houseTwo from "@images/pht-02.png";
+import Button from "@components/button/button.astro";
+import Featured from "@components/featured/featured.astro";
+import { mainNavigationItems } from "@components/navigation/definitions";
+import Project from "@components/project/project.astro";
+import { QUALITY_DEFINITIONS } from "@components/quality/definitions";
+import Quality from "@components/quality/quality.astro";
+import Title from "@components/title/title.astro";
+import Layout from "@layouts/Layout.astro";
+import { Image } from "astro:assets";
+---
+
+<Layout
+  title="Dreams Incorporadora"
+  items={mainNavigationItems}
+  logoNavigation="#top"
+  description="Somos uma empresa focalizada em inovação e controle de qualidade, que utiliza métodos construtivos eficientes, com prazos de execução acelerados. Construimos sonhos! Ajudamos a tornar realidade o desejo de adquirir um imóvel diferenciado e único!"
+>
+  <header
+    class="relative flex items-center justify-center h-dynamic px-3 bg-gradient-to-b from-black-100 to-transparent"
+  >
+    <div class="max-w-7/10">
+      <h1
+        data-animate-type="motion-safe:animate-fadeIn"
+        class="text-center text-2xl text-white desktop:text-lg js-animation-on-scroll"
+      >
+        O ponto de partida para a <strong>casa dos seus sonhos.</strong>
+      </h1>
+      <Button
+        text="Entre em contato"
+        link="#contact"
+        className="w-[209px] mx-auto"
+      />
+      <Image
+        src={heroImage}
+        alt="Imagem de casa com duas garagens."
+        class="absolute inset-0 w-full h-full object-cover z-[-1]"
+      />
+    </div>
+  </header>
+
+  <main>
+    <section
+      class="desktop:target:scroll-m-0 target:scroll-m-28 pt-12 desktop:pt-32 max-w-8/10 mx-auto overflow-hidden"
+      id="about"
+    >
+      <Title text="Quem somos" className="tablet:text-9xl" />
+      <div
+        class="flex flex-wrap pt-16 gap-12 desktop:gap-0 desktop:pt-24 desktop:flex-nowrap desktop:justify-center desktop:flex-row-reverse"
+      >
+        <div class="desktop:w-[500px] w-full">
+          <p class="font-bold text-orange-300 mb-12 text-base desktop:text-2xl">
+            Estamos localizados na enigmática cidade de Florianópolis, também
+            conhecida como “A ilha da magia”. Está categorizada como uma das
+            melhores cidades do Brasil para morar, com um alto índice de
+            desenvolvimento, proximidade à natureza e bairros seguros, ela é a
+            queridinha de muitos brasileiros e estrangeiros, que a escolheram
+            como lar. Vem investir com a gente e realizar seu sonho de viver
+            nesse paraíso!
+          </p>
+          <p class="text-base text-black-300 desktop:text-2xl">
+            Somos uma empresa focalizada em inovação e controle de qualidade,
+            que utiliza métodos construtivos eficientes, com prazos de execução
+            acelerados. Construimos sonhos! Ajudamos a tornar realidade o desejo
+            de adquirir um imóvel diferenciado e único!
+          </p>
+          <Button
+            text="Saiba mais"
+            link="/about"
+            className="w-[147px] mx-auto desktop:mx-0"
+          />
+        </div>
+        <div
+          class="relative flex justify-center items-center flex-wrap gap-6 mx-auto desktop:block desktop:pr-32 desktop:before:content-[''] desktop:before:border desktop:before:border-black-300 desktop:before:w-[393px] desktop:before:h-[408px] desktop:before:absolute desktop:before:top-2/4 desktop:before:-translate-y-2/4 desktop:before:left-[40%] desktop:before:-translate-x-2/4"
+        >
+          <Image
+            alt="imagem de uma casa"
+            class="relative w-full max-w-[379px]"
+            src={houseOne}
+          />
+          <Image
+            alt="imagem de uma casa"
+            class="relative w-full max-w-[379px] desktop:ml-24 mt-11"
+            src={houseTwo}
+          />
+        </div>
+      </div>
+    </section>
+
+    <Featured
+      text="Temos como foco a execução, planejamento e entrega de imóveis diferenciados e exclusivos."
+    />
+
+    <section class="py-12 bg-black-300 desktop:py-32">
+      <div class="max-w-8/10 mx-auto overflow-hidden">
+        <Title
+          text="Nosso diferencial"
+          dark
+          mediumFont
+          className="js-animation-on-scroll"
+        />
+        <div
+          data-animate-type="motion-safe:animate-fadeDown"
+          class="grid grid-cols-1 desktop:grid-cols-2 gap-6 pt-16 js-animation-on-scroll"
+        >
+          {
+            QUALITY_DEFINITIONS.map(quality => (
+              <Quality
+                title={quality.title}
+                text={quality.text}
+                iconName={quality.iconName}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="desktop:target:scroll-m-0 target:scroll-m-28 py-12 desktop:py-32 overflow-hidden"
+      id="enterprises"
+    >
+      <Title
+        className="text-center mb-12 js-animation-on-scroll"
+        text="Projetos"
+      />
+
+      {
+        PROJECT_DEFINITIONS.map(project => (
+          <Project
+            title={project.title}
+            text={project.text}
+            subtext={project.subtext}
+            background={project.background}
+            link={project.link}
+          />
+        ))
+      }
+    </section>
+  </main>
+</Layout>
