@@ -11,7 +11,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install pnpm manually
+      - name: Install pnpm manually (before setup-node)
         run: |
           corepack enable
           corepack prepare pnpm@8.7.5 --activate
@@ -25,6 +25,11 @@ jobs:
         with:
           node-version: 18
           cache: "pnpm"
+
+      - name: Verify pnpm installation
+        run: |
+          which pnpm || echo "pnpm not found"
+          pnpm --version || echo "pnpm not installed correctly"
 
       - name: Install dependencies
         run: pnpm install
