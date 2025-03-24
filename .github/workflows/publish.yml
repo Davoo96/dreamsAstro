@@ -11,24 +11,22 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js
+      - name: Setup Node.js with pnpm
         uses: actions/setup-node@v4
         with:
           node-version: 18
+          cache: "pnpm"
+          always-auth: false
 
       - name: Install pnpm
         run: |
-          # Install pnpm globally using npm
           sudo npm install -g pnpm@8.7.5
 
-          # Verify installation
           echo "PNPM path: $(which pnpm)"
           echo "PNPM version: $(pnpm --version)"
 
-          # Explicitly add to PATH (critical step)
           echo "$(which pnpm)" >> $GITHUB_PATH
 
-          # Verify PATH contains pnpm
           echo "PATH: $PATH"
 
       - name: Install dependencies
