@@ -11,28 +11,19 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js with pnpm
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: "pnpm"
-          always-auth: false
 
-      - name: Install pnpm
-        run: |
-          sudo npm install -g pnpm@8.7.5
-
-          echo "PNPM path: $(which pnpm)"
-          echo "PNPM version: $(pnpm --version)"
-
-          echo "$(which pnpm)" >> $GITHUB_PATH
-
-          echo "PATH: $PATH"
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8.7.5
 
       - name: Install dependencies
-        run: |
-          pnpm install
-          pnpm add -D @tailwindcss/postcss@latest
+        run: pnpm install
 
       - name: Build
         run: pnpm run build
