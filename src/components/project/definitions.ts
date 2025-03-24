@@ -2,7 +2,7 @@ import { type ProjectProps } from "./types";
 import novoResidence from "@images/pht-03.png";
 import jabuticabeira from "@images/pht-04.png";
 import view from "@images/pht-36.png";
-import rooftop from "@images/pht-52.jpg";
+import rooftop from "@images/pht-56.jpg";
 import rooftop2 from "@images/rooftopPortalRibeirao.jpg";
 
 export const PROJECT_DEFINITIONS: ProjectProps[] = [

@@ -2,6 +2,7 @@
 dist/
 .output/
 coverage/
+.astro/
 
 # dependencies
 node_modules/

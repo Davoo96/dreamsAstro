@@ -1,5 +1,4 @@
 name: Generate a build and push to another branch
-
 on:
   push:
     branches: [master]
@@ -7,34 +6,49 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Build and Push
     steps:
-      - name: git-checkout
-        uses: actions/checkout@v3
-
-      - name: Pnpm Setup
-        uses: pnpm/action-setup@v2
+      - uses: actions/checkout@v4
         with:
-          version: 8.7.5
-          run_install: false
+          fetch-depth: 0
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - name: Install pnpm manually
+        run: |
+          corepack enable
+          corepack prepare pnpm@8.7.5 --activate
+          echo "PNPM path: $(which pnpm)"
+          echo "PNPM version: $(pnpm --version)"
+          echo "$(which pnpm)" >> $GITHUB_PATH
+          echo "PATH after pnpm setup: $PATH"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: pnpm
+          cache: "pnpm"
 
-      - name: Install Dependencies
+      - name: Verify pnpm installation
+        run: |
+          which pnpm || echo "pnpm not found"
+          pnpm --version || echo "pnpm not installed correctly"
+
+      - name: Install dependencies
         run: pnpm install
 
       - name: Build
         run: pnpm run build
 
-      - name: Push
-        uses: s0/git-publish-subdir-action@develop
+      - name: Configure Git
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+
+      - name: Push to build branch
+        run: |
+          git switch --orphan build
+          git rm -rf .
+          cp -r dist/* .
+          git add -A
+          git commit -m "Build: $(git rev-parse --short HEAD)"
+          git push origin build --force
         env:
-          REPO: self
-          BRANCH: build
-          FOLDER: dist
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MESSAGE: "Build: ({sha}) {msg}"

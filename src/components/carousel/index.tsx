@@ -33,14 +33,14 @@ const Carousel = ({
         {slides.map((slides, index) => (
           <li
             key={slides.name}
-            className={`absolute duration-500 ease-in-out ${
+            className={`absolute w-full left-1/2 -translate-x-1/2 duration-500 ease-in-out ${
               current === index ? "opacity-100 scale-100" : "opacity-0 scale-90"
             }`}
           >
             <img
               src={slides.src}
               alt="Imagem de uma casa"
-              className="h-[280px] rounded-[40px] max-w-none w-[250px] tablet:h-[400px] tablet:w-[800px]"
+              className="h-[280px] rounded-[40px] max-w-full tablet:h-[400px] mx-auto my-0"
             />
           </li>
         ))}
