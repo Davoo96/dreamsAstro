@@ -21,13 +21,10 @@ jobs:
           node-version: 18
           cache: "pnpm"
 
-      - name: Verify pnpm installation
-        run: |
-          which pnpm || echo "pnpm not found"
-          pnpm --version || echo "pnpm not installed correctly"
-
       - name: Install dependencies
-        run: pnpm install
+        run: |
+          pnpm install
+          pnpm add -D @tailwindcss/postcss@latest
 
       - name: Build
         run: pnpm run build
@@ -39,9 +36,13 @@ jobs:
 
       - name: Push to build branch
         run: |
-          git switch --orphan build
-          git rm -rf .
+          git checkout --orphan temp-build
+          git commit --allow-empty -m "Initial commit"
+          git branch -D build || true
+          git branch -m build
+          
           cp -r dist/* .
+          
           git add -A
           git commit -m "Build: $(git rev-parse --short HEAD)"
           git push origin build --force

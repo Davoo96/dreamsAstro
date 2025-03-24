@@ -17,30 +17,25 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install pnpm
+      - name: Install pnpm globally
         run: |
           sudo npm install -g pnpm@8.7.5
-          echo "PNPM path: $(which pnpm)" >> $GITHUB_PATH
-          pnpm --version
+          echo "PNPM version: $(pnpm --version)"
+          echo "PNPM path: $(which pnpm)"
 
       - name: Install dependencies
         run: |
-          pnpm install
-          pnpm add -D @tailwindcss/postcss@latest tailwindcss@^3.0.0
-          echo "module.exports = { plugins: { '@tailwindcss/postcss': {}, autoprefixer: {} } }" > postcss.config.js
+          # Force pnpm usage regardless of package.json
+          pnpm install --ignore-scripts
+          pnpm add -D @tailwindcss/postcss@latest
 
-      - name: Install Playwright browsers
+      - name: Install Playwright Browsers
+        run: pnpm exec playwright install --with-deps
+
+      - name: Run Playwright tests
         run: |
-          pnpm exec playwright install --with-deps
-          pnpm exec playwright install-deps
-
-      - name: Run tests
-        uses: GabrielBB/xvfb-action@v1
-        with:
-          run: |
-            export NODE_ENV=test
-            pnpm exec playwright test
-          working-directory: ./
+          export NODE_ENV=test
+          pnpm exec playwright test
 
       - uses: actions/upload-artifact@v4
         if: always()

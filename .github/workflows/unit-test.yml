@@ -1,5 +1,4 @@
 name: Run Unit Tests
-
 on:
   push:
     branches: [master]
@@ -12,16 +11,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8.7.5
+      - name: Enable Corepack
+        run: |
+          sudo corepack enable
+          corepack prepare pnpm@8.7.5 --activate
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: "pnpm"
+
+      - name: Verify pnpm
+        run: |
+          echo "PNPM version: $(pnpm --version)"
+          which pnpm
 
       - name: Install dependencies
         run: |
