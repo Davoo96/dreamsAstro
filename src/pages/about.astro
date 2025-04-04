@@ -1,0 +1,94 @@
+---
+import Featured from "@components/featured/featured.astro";
+import { aboutUsNavigationItems } from "@components/navigation/definitions";
+import { SERVICE_DEFINITIONS } from "@components/service/definitions";
+import Service from "@components/service/service.astro";
+import Title from "@components/title/title.astro";
+import { VALUE_DEFINITIONS } from "@components/value/definitions";
+import Value from "@components/value";
+import headerHouse from "@images/pht-05.png";
+import Layout from "@layouts/Layout.astro";
+import { Image } from "astro:assets";
+---
+
+<Layout
+  title="Sobre nós"
+  items={aboutUsNavigationItems}
+  logoNavigation="/"
+  description="Saiba mais sobre a Dreams Incorporadora, seus serviços e valores."
+>
+  <header
+    class="bg-black-300 h-dynamic flex flex-col items-center justify-center tablet:mb-96 overflow-hidden"
+  >
+    <Title text="Sobre nós" mediumFont dark />
+    <span
+      class="relative text-base text-white uppercase pt-4 pl-20 before:content-[''] before:h-0.5 before:w-[62px] before:bg-white before:absolute before:left-0 before:translate-y-1/2 before:top-[66%]"
+      >Venha nos conhecer</span
+    >
+    <Image
+      src={headerHouse}
+      loading="eager"
+      alt="A white colored house with a palm tree in front of it and two cars parked in the garage"
+      class="w-full max-w-[1780px] max-h-[660px] relative tablet:absolute px-7 left-1/2 transform -translate-x-1/2 -bottom-8 desktop:-bottom-[24rem] tablet:px-16 tablet:-bottom-80"
+    />
+  </header>
+  <section
+    class="desktop:target:scroll-m-0 target:scroll-m-28 pt-12 desktop:pt-32 max-w-8/10 mx-auto"
+  >
+    <div
+      class="flex items-center flex-wrap justify-between mb-12 gap-6 desktop:mb-32 desktop:flex-nowrap"
+    >
+      <p
+        class="basis-fit-content font-bold text-orange-300 text-base tablet:text-2xl"
+      >
+        Dreams Incorporadora - sua escolha para a casa dos sonhos.
+      </p>
+      <p class="basis-fit-content text-base tablet:text-2xl">
+        Dreams Incorporadora é uma empresa que tem como objetivo garantir não
+        apenas a excelência na qualidade física, mas também de proporcionar uma
+        experiência inesquecível. Fruto de um sonho construído com muito
+        esforço, dedicação e aprendizagem, a empresa busca ser referência no
+        segmento, através da construção de imóveis de alto padrão e excelente
+        custo benefício, sempre visando a qualidade técnica e inovação em seus
+        serviços.
+      </p>
+    </div>
+
+    <Featured
+      title="Missão:"
+      text="Compromisso em construir imóveis de qualidade, pensando no bem estar do nosso cliente. "
+    />
+  </section>
+
+  <section class="desktop:pb-32 pb-12 max-w-8/10 mx-auto">
+    <Title mediumFont text="Serviços" className="text-center" />
+    <div
+      class="grid grid-cols-1 pt-12 justify-items-center desktop:grid-cols-2 gap-6 laptop:pt-16 laptop:mt-24 js-animation-on-scroll"
+    >
+      {
+        SERVICE_DEFINITIONS.map(service => (
+          <Service
+            title={service.title}
+            backgroundImage={service.backgroundImage}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="py-12 mb-12 bg-black-300 desktop:mb-32 desktop:py-32">
+    <div class="max-w-8/10 mx-auto overflow-hidden">
+      <Title text="Nossos Valores" mediumFont dark />
+
+      <div
+        class="grid grid-cols-2 gap-14 mt-12 tablet:grid-cols-4 tablet:gap-28 tablet:mt-24"
+      >
+        {
+          VALUE_DEFINITIONS.map(value => (
+            <Value client:load icon={value.icon} label={value.label} />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,31 @@
+---
+import SafetyIcon from "@icons/icon-safety.svg";
+import EfficiencyIcon from "@icons/icon-efficiency.svg";
+import PlanningIcon from "@icons/icon-planning.svg";
+import QualityIcon from "@icons/icon-quality.svg";
+import type { IconName, QualitiesProps } from "./types";
+import { Image } from "astro:assets";
+
+const iconStrategy: { [key in IconName]: ImageMetadata } = {
+  SAFETY: SafetyIcon,
+  EFFICIENCY: EfficiencyIcon,
+  PLANNING: PlanningIcon,
+  QUALITY: QualityIcon
+};
+
+const { text, title, iconName } = Astro.props as QualitiesProps;
+---
+
+<div
+  class="bg-transparent border border-orange-300 px-2.5 py-6 desktop:px-10 desktop:py-12"
+>
+  <h2 class="text-orange-300 pb-9 text-base font-bold desktop:text-2xl">
+    <Image
+      class="bg-white rounded-full p-3 mr-4 inline-block h-[57.5px] w-[57.5px] desktop:mr-9 desktop:h-[75px] desktop:w-[75px]"
+      src={iconStrategy[iconName]}
+      alt=""
+    />
+    {title}
+  </h2>
+  <p class="text-base px-4 text-white desktop:text-2xl">{text}</p>
+</div>
