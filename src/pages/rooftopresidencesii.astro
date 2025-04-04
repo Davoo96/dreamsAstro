@@ -5,12 +5,7 @@ import { ROOFTOP_RESIDENCEII_DEFINITIONS } from "@components/value/definitions";
 import slideImage1 from "@images/pht-57.jpg";
 import slideImage2 from "@images/pht-58.jpg";
 import slideImage3 from "@images/pht-59.jpg";
-import slideImage4 from "@images/pht-60.jpg";
-import slideImage5 from "@images/pht-61.jpg";
-import slideImage6 from "@images/pht-62.jpg";
-import slideImage7 from "@images/pht-63.jpg";
-import slideImage8 from "@images/dormitorioRooftop.jpg";
-import slideImage9 from "@images/rooftopPortalRibeirao.jpg";
+import slideImage4 from "@images/rooftopPortalRibeirao.jpg";
 import Layout from "@layouts/Layout.astro";
 import { Image, getImage } from "astro:assets";
 import Carousel from "../components/carousel";
@@ -34,26 +29,6 @@ const optimizedBackground4 = await getImage({
   src: slideImage4,
   format: "webp"
 });
-const optimizedBackground5 = await getImage({
-  src: slideImage5,
-  format: "webp"
-});
-const optimizedBackground6 = await getImage({
-  src: slideImage6,
-  format: "webp"
-});
-const optimizedBackground7 = await getImage({
-  src: slideImage7,
-  format: "webp"
-});
-const optimizedBackground8 = await getImage({
-  src: slideImage8,
-  format: "webp"
-});
-const optimizedBackground9 = await getImage({
-  src: slideImage9,
-  format: "webp"
-});
 ---
 
 <Layout
@@ -74,7 +49,7 @@ const optimizedBackground9 = await getImage({
       </h2>
     </div>
     <Image
-      src={slideImage9}
+      src={slideImage4}
       alt="Imagem de casa com duas garagens."
       class="absolute inset-0 w-full h-full object-cover z-[-1]"
     />
@@ -111,11 +86,6 @@ const optimizedBackground9 = await getImage({
           { src: optimizedBackground2.src, name: "slide image 2" },
           { src: optimizedBackground3.src, name: "slide image 3" },
           { src: optimizedBackground4.src, name: "slide image 4" },
-          { src: optimizedBackground5.src, name: "slide image 5" },
-          { src: optimizedBackground6.src, name: "slide image 6" },
-          { src: optimizedBackground7.src, name: "slide image 7" },
-          { src: optimizedBackground8.src, name: "slide image 8" },
-          { src: optimizedBackground9.src, name: "slide image 9" }
         ]}
         id="gallery"
       />
