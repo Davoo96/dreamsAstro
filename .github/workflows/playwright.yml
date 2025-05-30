@@ -1,0 +1,45 @@
+name: Playwright Tests
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install pnpm globally
+        run: |
+          sudo npm install -g pnpm@8.7.5
+          echo "PNPM version: $(pnpm --version)"
+          echo "PNPM path: $(which pnpm)"
+
+      - name: Install dependencies
+        run: |
+          # Force pnpm usage regardless of package.json
+          pnpm install --ignore-scripts
+          pnpm add -D @tailwindcss/postcss@latest
+
+      - name: Install Playwright Browsers
+        run: pnpm exec playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: |
+          export NODE_ENV=test
+          pnpm exec playwright test
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30

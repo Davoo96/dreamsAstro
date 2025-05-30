@@ -1,0 +1,35 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "plugins": [
+    {
+      "name": "@astrojs/ts-plugin"
+    }
+  ],
+  "compilerOptions": {
+    "lib": ["ES2022"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "declaration": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "verbatimModuleSyntax": true,
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@images/*": ["src/assets/pictures/*"],
+      "@icons/*": ["src/assets/icons/*"]
+    }
+  },
+  "types": ["node", "jest", "@testing-library/jest-dom", "vitest/globals"],
+  "include": ["src/**/*", "e2e/example.spec.ts"],
+  "exclude": ["node_modules", "dist", "src/test", "src/layouts/Layout.astro"]
+}

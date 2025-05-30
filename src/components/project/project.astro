@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+import Button from "../button/button.astro";
+import type { ProjectProps } from "./types";
+
+const { title, subtext, text, link, background } = Astro.props as ProjectProps;
+---
+
+<div
+  data-animate-type="motion-safe:animate-fadeRight"
+  class="js-animation-on-scroll"
+>
+  <div
+    class="relative text-white flex flex-col items-start justify-start py-14 px-6 h-[420px] desktop:justify-center desktop:pl-56 desktop:h-[713px] bg-gradient-to-b from-black-100 to-transparent"
+  >
+    <h2
+      class="text-2xl mb-6 uppercase font-bold desktop:text-5xl"
+      transition:name={title}
+    >
+      {title}
+    </h2>
+    <p class="text-base desktop:text-2xl">{text}</p>
+    <p class="text-base desktop:text-2xl">{subtext}</p>
+    <Button className="w-[147px]" link={link} text="Saiba mais" />
+    <Image
+      src={background}
+      alt="Imagem de casa com duas garagens."
+      class="absolute inset-0 w-full h-full object-cover z-[-1]"
+    />
+  </div>
+</div>
