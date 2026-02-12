@@ -12,6 +12,12 @@ interface Props extends NavigationItemsProps {
 }
 
 const { title, items, logoNavigation, description } = Astro.props;
+
+// EmailJS & Request Metrics - from .env (use PUBLIC_ prefix for client exposure)
+const emailjsPublicKey = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
+const emailjsServiceId = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID;
+const emailjsTemplateId = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID;
+const requestMetricsToken = import.meta.env.PUBLIC_REQUEST_METRICS_TOKEN;
 ---
 
 <!DOCTYPE html>
@@ -41,14 +47,14 @@ const { title, items, logoNavigation, description } = Astro.props;
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
     ></script>
-    <script>
+    <script define:vars={{ emailjsPublicKey }}>
       (function () {
         emailjs.init({
-          publicKey: "lStbQMTsqEXepNUhL"
+          publicKey: emailjsPublicKey
         });
       })();
     </script>
-    <script>
+    <script define:vars={{ emailjsServiceId, emailjsTemplateId }}>
       function initEmail() {
         const contactForm = document.getElementById("contact-form");
         const submitButton = document.getElementById("submit-button");
@@ -69,7 +75,7 @@ const { title, items, logoNavigation, description } = Astro.props;
             message: messageInput.value
           };
 
-          emailjs.send("service_3fz9obo", "template_2w8i027", inputFields).then(
+          emailjs.send(emailjsServiceId, emailjsTemplateId, inputFields).then(
             () => {
               nameInput.value = "";
               emailInput.value = "";
@@ -88,7 +94,7 @@ const { title, items, logoNavigation, description } = Astro.props;
       document.addEventListener("astro:after-swap", initEmail);
     </script>
     <!-- Request Metrics -->
-    <script>
+    <script define:vars={{ requestMetricsToken }}>
       (function (t, e, n, a) {
         function r() {
           return e && e.now ? e.now() : null;
@@ -128,7 +134,7 @@ const { title, items, logoNavigation, description } = Astro.props;
         "https://cdn.requestmetrics.com/agent/current/rm.js"
       );
       RM.install({
-        token: "n7qu3dm:f5bu8sc"
+        token: requestMetricsToken
       });
     </script>
     <meta name="generator" content={Astro.generator} />
