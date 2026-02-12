@@ -1,0 +1,15 @@
+{
+  "tabWidth": 2,
+  "bracketSpacing": true,
+  "trailingComma": "none",
+  "arrowParens": "avoid",
+  "singleQuote": false,
+  "overrides": [
+    {
+      "files": "*.astro",
+      "options": {
+        "parser": "astro"
+      }
+    }
+  ]
+}

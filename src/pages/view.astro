@@ -1,0 +1,163 @@
+---
+import { projectNavitagionItems } from "@components/navigation/definitions";
+import Plants from "@components/plants/plants.astro";
+import Value from "@components/value";
+import { VIEW_DEFINITIONS } from "@components/value/definitions";
+import backgroundImage from "@images/pht-36.png";
+import slideImage1 from "@images/pht-37.png";
+import slideImage2 from "@images/pht-38.png";
+import slideImage3 from "@images/pht-39.png";
+import slideImage4 from "@images/pht-40.png";
+import slideImage5 from "@images/pht-41.png";
+import slideImage6 from "@images/pht-42.png";
+import slideImage7 from "@images/pht-43.png";
+import plantSlide1 from "@images/pht-44.png";
+import plantSlide2 from "@images/pht-45.png";
+import plantSlide3 from "@images/pht-46.png";
+import plantSlide4 from "@images/pht-47.png";
+import Layout from "@layouts/Layout.astro";
+import { Image, getImage } from "astro:assets";
+import Carousel from "../components/carousel";
+
+const optimizedBackground1 = await getImage({
+  src: slideImage1,
+  format: "webp"
+});
+const optimizedBackground2 = await getImage({
+  src: slideImage2,
+  format: "webp"
+});
+const optimizedBackground3 = await getImage({
+  src: slideImage3,
+  format: "webp"
+});
+const optimizedBackground4 = await getImage({
+  src: slideImage4,
+  format: "webp"
+});
+const optimizedBackground5 = await getImage({
+  src: slideImage5,
+  format: "webp"
+});
+const optimizedBackground6 = await getImage({
+  src: slideImage6,
+  format: "webp"
+});
+const optimizedBackground7 = await getImage({
+  src: slideImage7,
+  format: "webp"
+});
+const optimizedPlantSlide1 = await getImage({
+  src: plantSlide1,
+  format: "webp"
+});
+const optimizedPlantSlide2 = await getImage({
+  src: plantSlide2,
+  format: "webp"
+});
+const optimizedPlantSlide3 = await getImage({
+  src: plantSlide3,
+  format: "webp"
+});
+const optimizedPlantSlide4 = await getImage({
+  src: plantSlide4,
+  format: "webp"
+});
+---
+
+<Layout
+  title="View Residence"
+  items={projectNavitagionItems}
+  logoNavigation="/"
+  description="View é a escolha certa para quem quer protagonizar os melhores momentos de sua vida."
+>
+  <header
+    class="relative flex items-center justify-start h-dynamic bg-100 px-3 bg-gradient-to-b from-black-100 to-transparent"
+  >
+    <div class="max-w-7/10 z-40" transition:name="View Residence">
+      <h2
+        class="text-start uppercase font-bold text-2xl text-white tablet:text-lg tablet:pl-32"
+      >
+        <span class="block">View</span>
+        <span class="block">Residence</span>
+      </h2>
+    </div>
+    <Image
+      src={backgroundImage}
+      alt="Imagem de casa com duas garagens."
+      class="absolute inset-0 w-full h-full object-cover z-[-1]"
+    />
+  </header>
+
+  <main>
+    <section
+      class="desktop:target:scroll-m-0 target:scroll-m-28 pt-12 desktop:pt-32 max-w-8/10 mx-auto"
+      id="about"
+    >
+      <h2
+        class="text-orange-300 text-2xl tablet:text-5xl text-center font-bold pb-8 tablet:pb-20 uppercase"
+      >
+        Um empreendimento visionário
+      </h2>
+      <p class="text-base tablet:text-2xl mb-9">
+        Somente a 4 minutos da praia, este empreendimento oferece uma
+        experiência única para quem decidir torná-lo o seu lar. Um
+        empreendimento visionário, que procura estabelecer um equilíbrio entre
+        um lar moderno e um estilo de vida natural e completo. Casas com
+        arquitetura contemporânea, espaços amplos, e áreas privativas
+        aconchegantes. Profundamente planejado, pensado para aproveitar a vida
+        com maior conforto, celebrar ocasiões especiais, ou desfrutar de um
+        final de semana espontâneo na praia.
+      </p>
+    </section>
+
+    <section class="py-12 desktop:py-32">
+      <Carousel
+        client:load
+        slides={[
+          { src: optimizedBackground1.src, name: "slide image 1" },
+          { src: optimizedBackground2.src, name: "slide image 2" },
+          { src: optimizedBackground3.src, name: "slide image 3" },
+          { src: optimizedBackground4.src, name: "slide image 4" },
+          { src: optimizedBackground5.src, name: "slide image 5" },
+          { src: optimizedBackground6.src, name: "slide image 6" },
+          { src: optimizedBackground7.src, name: "slide image 7" }
+        ]}
+        id="gallery"
+      />
+      <div
+        class="grid grid-cols-2 pt-12 justify-items-center tablet:grid-cols-4 gap-6 max-w-8/10 mx-auto tablet:pt-16 tablet:mt-24 tablet:gap-16"
+      >
+        {
+          VIEW_DEFINITIONS.map(value => (
+            <Value client:load icon={value.icon} label={value.label} />
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="py-12 mb-32 bg-black-300 desktop:py-32 overflow-hidden">
+      <Plants
+        slides={[
+          {
+            src: optimizedPlantSlide1.src,
+            name: "Planta Inferior Casa 1"
+          },
+          {
+            src: optimizedPlantSlide2.src,
+            name: "Planta Superior Casa 1"
+          },
+          {
+            src: optimizedPlantSlide3.src,
+            name: "Planta Inferior Casa 2"
+          },
+          {
+            src: optimizedPlantSlide4.src,
+            name: "Planta Superior Casa 2"
+          }
+        ]}
+        address="R. Canela Amarela, 242-356 - Moenda"
+      />
+    </section>
+  </main>
+</Layout>

@@ -1,0 +1,107 @@
+---
+import phone from "../../assets/icons/icon-telefone.svg";
+import home from "../../assets/icons/icon-home.svg";
+import email from "../../assets/icons/icon-email.svg";
+import { Image } from "astro:assets";
+---
+
+<div
+  data-animate-type="motion-safe:animate-fadeUp"
+  class="desktop:target:scroll-m-40 target:scroll-m-28 desktop:max-w-8/10 desktop:mx-auto flex items-center gap-12 relative flex-col desktop:flex-row desktop:after:absolute after:bg-black-300 desktop:after:w-[772px] desktop:after:h-[535px] desktop:after:right-[-138px] desktop:after:top-[66px] after:z-[-1]"
+  id="contact"
+>
+  <div class="text-center desktop:text-left">
+    <h2
+      class="text-2xl mb-10 uppercase font-bold text-black-300 tablet:text-5xl desktop:mt-[66px]"
+    >
+      Fale Conosco
+    </h2>
+    <form id="contact-form" onsubmit="onSubmit()">
+      <fieldset class="flex flex-col gap-6 justify-center tablet:w-[478px]">
+        <label for="user_name" class="hidden">Nome</label>
+        <input
+          class="relative border-solid border-[1px] py-3 px-5 border-gray-300"
+          type="text"
+          id="user_name"
+          name="user_name"
+          placeholder="Nome"
+          required
+        />
+        <label for="user_email" class="hidden">Email</label>
+        <input
+          class="relative border-solid border-[1px] py-3 px-5 border-gray-300"
+          type="email"
+          id="user_email"
+          name="user_email"
+          placeholder="Email"
+          required
+        />
+        <label for="contact_number" class="hidden">Telefone</label>
+        <input
+          class="relative border-solid border-[1px] py-3 px-5 border-gray-300"
+          type="tel"
+          id="contact_number"
+          name="contact_number"
+          placeholder="Telefone"
+        />
+        <label for="message" class="hidden">Mensagem</label>
+        <textarea
+          class="relative border-solid border-[1px] py-3 px-5 border-gray-300 w-full h-[143px]"
+          name="message"
+          id="message"
+          placeholder="Mensagem"
+          required></textarea>
+        <button
+          onclick="onSubmit()"
+          id="submit-button"
+          type="submit"
+          class="text-base font-bold block bg-black-300 border border-orange-300 py-4 text-center text-white duration-300 hover:bg-orange-300 hover:border-black-300 cursor-pointer"
+          >Enviar</button
+        >
+      </fieldset>
+    </form>
+  </div>
+  <div
+    class="desktop:pt-[450px] desktop:pb-0 pb-[450px] pt-12 px-4 text-white bg-black-300 desktop:bg-transparent w-full"
+  >
+    <iframe
+      title="mapa de localização da Dreams Incorporadora"
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7075.742873054898!2d-48.509336!3d-27.535453!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9527470d7aaf826b%3A0x4d3572e8bdd0a188!2sSquare%20SC!5e0!3m2!1sen!2sus!4v1719409420357!5m2!1sen!2sus"
+      style="border:0;"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      class="absolute bottom-0 right-1/2 translate-x-1/2 desktop:right-0 desktop:translate-x-0 desktop:top-0 h-[450px] w-full max-w-[300px] tablet:max-w-[615px]"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="text-xs">
+      <div class="flex gap-4 items-center flex-nowrap max-w-[479px] mx-auto">
+        <Image src={home} alt="" />
+        <div>
+          <h3 class="font-bold">Endereço</h3>
+          <p>
+            Rod. José Carlos Daux 5500, Sala 332 - Saco Grande,
+            Florianopolis - SC
+          </p>
+        </div>
+      </div>
+      <div
+        class="flex flex-row flex-wrap gap-6 tablet:flex-nowrap tablet:gap-14 pt-6 items-center max-w-[479px] mx-auto"
+      >
+        <div class="flex flex-nowrap items-center gap-4">
+          <Image src={phone} alt="" />
+          <div>
+            <h3 class="font-bold">Telefone</h3>
+            <p>48-3067-7957</p>
+          </div>
+        </div>
+        <div class="flex flex-nowrap items-center gap-4">
+          <Image src={email} alt="" />
+          <div>
+            <h3 class="font-bold">E-Mail</h3>
+            <p>contato@dreamsincorporadora.com.br</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

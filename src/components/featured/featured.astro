@@ -1,0 +1,22 @@
+---
+interface FeaturedProps {
+  title?: string;
+  text: string;
+}
+
+const { text, title } = Astro.props as FeaturedProps;
+---
+
+<div
+  data-animate-type="motion-safe:animate-fadeIn"
+  class="my-12 px-12 py-9 border border-orange-300 max-w-8/10 mx-auto desktop:my-32 tablet:py-12 tablet:px-28 js-animation-on-scroll"
+>
+  {
+    title && (
+      <h2 class="font-bold text-base text-center text-orange-300 tablet:text-2xl">
+        {title}
+      </h2>
+    )
+  }
+  <p class="text-base text-center tablet:text-2xl">{text}</p>
+</div>

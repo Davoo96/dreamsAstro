@@ -1,0 +1,23 @@
+---
+import type { ServiceEnum, ServiceProps } from "./types";
+
+const backgroundStrategy: { [key in ServiceEnum]: string } = {
+  INCORPORATION: "bg-incorporation",
+  CONSTRUCTION: "bg-construction",
+  MANAGEMENT: "bg-management",
+  PROJECTS: "bg-projects"
+};
+
+const { title, backgroundImage } = Astro.props as ServiceProps;
+---
+
+<div
+  data-animate-type="motion-safe:animate-fadeDown"
+  class={`w-full bg-no-repeat bg-100 max-w-[250px] tablet:max-w-[526px] desktop:max-w-[578px] ${backgroundStrategy[backgroundImage]}`}
+>
+  <h2
+    class="py-28 px-3 text-2xl tablet:text-lg tablet:px-0 tablet:py-52 desktop:text-lg text-center font-bold text-white"
+  >
+    {title}
+  </h2>
+</div>

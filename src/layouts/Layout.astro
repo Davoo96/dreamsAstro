@@ -1,0 +1,156 @@
+---
+import Navigation, {
+  type NavigationItemsProps
+} from "../components/navigation";
+import Footer from "@components/footer/footer.astro";
+import Contact from "@components/contact/contact.astro";
+import { ViewTransitions } from "astro:transitions";
+
+interface Props extends NavigationItemsProps {
+  title: string;
+  description: string;
+}
+
+const { title, items, logoNavigation, description } = Astro.props;
+
+// EmailJS & Request Metrics - from .env (use PUBLIC_ prefix for client exposure)
+const emailjsPublicKey = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
+const emailjsServiceId = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID;
+const emailjsTemplateId = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID;
+const requestMetricsToken = import.meta.env.PUBLIC_REQUEST_METRICS_TOKEN;
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      onload="this.onload=null;this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="preload"
+      as="style"
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      /></noscript
+    >
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <script src="../scripts/app.ts"></script>
+    <script
+      is:inline
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script define:vars={{ emailjsPublicKey }}>
+      (function () {
+        emailjs.init({
+          publicKey: emailjsPublicKey
+        });
+      })();
+    </script>
+    <script define:vars={{ emailjsServiceId, emailjsTemplateId }}>
+      function initEmail() {
+        const contactForm = document.getElementById("contact-form");
+        const submitButton = document.getElementById("submit-button");
+        const nameInput = document.getElementById("user_name");
+        const emailInput = document.getElementById("user_email");
+        const phoneInput = document.getElementById("contact_number");
+        const messageInput = document.getElementById("message");
+
+        contactForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          submitButton.innerText = "Enviando...";
+
+          const inputFields = {
+            name: nameInput.value,
+            email: emailInput.value,
+            contact: phoneInput.value,
+            message: messageInput.value
+          };
+
+          emailjs.send(emailjsServiceId, emailjsTemplateId, inputFields).then(
+            () => {
+              nameInput.value = "";
+              emailInput.value = "";
+              phoneInput.value = "";
+              messageInput.value = "";
+              submitButton.innerText = "Mensagem enviada com sucesso";
+              console.log("SUCCESS!");
+            },
+            error => {
+              console.log("FAILED...", error);
+            }
+          );
+        });
+      }
+      window.onload = initEmail;
+      document.addEventListener("astro:after-swap", initEmail);
+    </script>
+    <!-- Request Metrics -->
+    <script define:vars={{ requestMetricsToken }}>
+      (function (t, e, n, a) {
+        function r() {
+          return e && e.now ? e.now() : null;
+        }
+        if (!n.version) {
+          n._events = [];
+          n._errors = [];
+          n._metadata = {};
+          window.RM = n;
+          n.install = function (e) {
+            n._options = e;
+            var r = t.createElement("script");
+            r.async = true;
+            r.crossOrigin = "anonymous";
+            r.src = a;
+            var i = t.getElementsByTagName("script")[0];
+            i.parentNode.insertBefore(r, i);
+          };
+          n.identify = function (t, e) {
+            n._userId = t;
+            n._identifyOptions = e;
+          };
+          n.sendEvent = function (t, e) {
+            n._events.push({ eventName: t, metadata: e, time: r() });
+          };
+          n.track = function (t, e) {
+            n._errors.push({ error: t, metadata: e, time: r() });
+          };
+          n.addMetadata = function (t) {
+            n._metadata = Object.assign(n._metadata, t);
+          };
+        }
+      })(
+        document,
+        window.performance,
+        window.RM || {},
+        "https://cdn.requestmetrics.com/agent/current/rm.js"
+      );
+      RM.install({
+        token: requestMetricsToken
+      });
+    </script>
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <Navigation client:load items={items} logoNavigation={logoNavigation} />
+    <slot />
+    <Contact />
+    <Footer />
+    <style is:global>
+      html {
+        font-family: Montserrat, sans-serif;
+      }
+    </style>
+  </body>
+</html>
