@@ -56,5 +56,12 @@ jobs:
           cp ../dist/.nojekyll . 2>/dev/null || true
 
           git add -A
-          git commit -m "Build: ${{ github.sha }}"
-          git push -u origin build
+
+          if git diff --staged --quiet; then
+            echo "Build output unchanged; empty commit to trigger deployment"
+            git commit --allow-empty -m "Build: ${{ github.sha }} (unchanged output)"
+          else
+            git commit -m "Build: ${{ github.sha }}"
+          fi
+
+          git push origin build
