@@ -65,7 +65,7 @@ export const NOVO_RESIDENCE_DEFINITIONS: ValueProps[] = [
     icon: ValueEnum.DOUBLE_ARROWS
   },
   {
-    label: "2 VAGAS DE GARAGEM",
+    label: "6 VAGAS DE GARAGEM",
     icon: ValueEnum.GARAGE
   }
 ];
@@ -100,7 +100,7 @@ export const JABUTICABEIRA_DEFINITIONS: ValueProps[] = [
     icon: ValueEnum.DOUBLE_ARROWS
   },
   {
-    label: "1 VAGA DE GARAGEM",
+    label: "3 VAGAS DE GARAGEM",
     icon: ValueEnum.GARAGE
   }
 ];
@@ -170,7 +170,7 @@ export const ROOFTOP_RESIDENCE_DEFINITIONS: ValueProps[] = [
     icon: ValueEnum.DOUBLE_ARROWS
   },
   {
-    label: "1 VAGA DE GARAGEM",
+    label: "3 VAGAS DE GARAGEM",
     icon: ValueEnum.GARAGE
   }
 ];
