@@ -32,16 +32,29 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      - name: Force push dist to build branch
+      - name: Push dist to build branch
+        env:
+          REPO_URL: https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
         run: |
-          cd dist
+          set -e
 
-          git init -b build
+          if git ls-remote --heads "$REPO_URL" build | grep -q refs/heads/build; then
+            git clone --branch build --single-branch "$REPO_URL" deploy-repo
+          else
+            mkdir -p deploy-repo
+            git -C deploy-repo init -b build
+            git -C deploy-repo remote add origin "$REPO_URL"
+          fi
+
+          cd deploy-repo
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
+          find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+
+          cp -r ../dist/* .
+          cp ../dist/.nojekyll . 2>/dev/null || true
+
           git add -A
           git commit -m "Build: ${{ github.sha }}"
-
-          git remote add origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
-          git push origin build --force
+          git push -u origin build
