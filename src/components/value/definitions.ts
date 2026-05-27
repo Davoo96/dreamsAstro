@@ -2,7 +2,7 @@ import { ValueEnum, type ValueProps } from "./types";
 
 export const VALUE_DEFINITIONS: ValueProps[] = [
   {
-    label: "Confianças",
+    label: "Confiança",
     icon: ValueEnum.TRUST
   },
   {
