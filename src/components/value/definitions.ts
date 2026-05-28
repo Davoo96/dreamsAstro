@@ -135,7 +135,7 @@ export const VIEW_DEFINITIONS: ValueProps[] = [
     icon: ValueEnum.DOUBLE_ARROWS
   },
   {
-    label: "1 VAGA DE GARAGEM",
+    label: "3 VAGA DE GARAGEM",
     icon: ValueEnum.GARAGE
   }
 ];
@@ -170,7 +170,7 @@ export const ROOFTOP_RESIDENCE_DEFINITIONS: ValueProps[] = [
     icon: ValueEnum.DOUBLE_ARROWS
   },
   {
-    label: "3 VAGA DE GARAGEM",
+    label: "1 VAGA DE GARAGEM",
     icon: ValueEnum.GARAGE
   }
 ];
