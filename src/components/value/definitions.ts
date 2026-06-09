@@ -175,6 +175,41 @@ export const ROOFTOP_RESIDENCE_DEFINITIONS: ValueProps[] = [
   }
 ];
 
+export const OCEANVIEW_DEFINITIONS: ValueProps[] = [
+  {
+    label: "28 M2 - 95 M2",
+    icon: ValueEnum.METRICS
+  },
+  {
+    label: "STÚDIOS E 2 QUARTOS",
+    icon: ValueEnum.SUITES
+  },
+  {
+    label: "ESQUADRIAS EM ALUMÍNIO",
+    icon: ValueEnum.BALCONY
+  },
+  {
+    label: "COZINHA INTEGRADA",
+    icon: ValueEnum.KITCHEN
+  },
+  {
+    label: "LAVANDEIRA INTEGRADA",
+    icon: ValueEnum.LAUNDRY
+  },
+  {
+    label: "ÁREA COMUM",
+    icon: ValueEnum.GOURMET
+  },
+  {
+    label: "PÉ DIREITO DUPLO",
+    icon: ValueEnum.DOUBLE_ARROWS
+  },
+  {
+    label: "20 VAGAS DE GARAGEM",
+    icon: ValueEnum.GARAGE
+  }
+];
+
 export const ROOFTOP_RESIDENCEII_DEFINITIONS: ValueProps[] = [
   {
     label: "120 M2 – 162 M2",

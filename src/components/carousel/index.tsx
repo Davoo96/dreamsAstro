@@ -28,19 +28,19 @@ const Carousel = ({
     >
       <ul
         key={id}
-        className={`overflow-hidden relative my-0 mx-auto flex ease-out duration-300 w-[250px] h-[280px] tablet:h-[400px] tablet:w-[800px]`}
+        className="overflow-hidden relative my-0 mx-auto flex ease-out duration-300 w-full max-w-[280px] h-[280px] tablet:max-w-8/10 tablet:h-[450px] desktop:h-[550px]"
       >
         {slides.map((slides, index) => (
           <li
             key={slides.name}
-            className={`absolute w-full left-1/2 -translate-x-1/2 duration-500 ease-in-out ${
+            className={`absolute inset-0 w-full h-full duration-500 ease-in-out ${
               current === index ? "opacity-100 scale-100" : "opacity-0 scale-90"
             }`}
           >
             <img
               src={slides.src}
-              alt="Imagem de uma casa"
-              className="h-[280px] rounded-[40px] max-w-full tablet:h-[400px] mx-auto my-0"
+              alt={slides.name}
+              className="w-full h-full rounded-[40px] object-cover"
             />
           </li>
         ))}
