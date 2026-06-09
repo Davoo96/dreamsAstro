@@ -4,6 +4,7 @@ import jabuticabeira from "@images/pht-04.png";
 import view from "@images/pht-36.png";
 import rooftop from "@images/pht-56.jpg";
 import rooftop2 from "@images/rooftopPortalRibeirao.jpg";
+import oceanview from "@images/PredioCampeche1.jpg";
 
 export const PROJECT_DEFINITIONS: ProjectProps[] = [
   {
@@ -40,5 +41,12 @@ export const PROJECT_DEFINITIONS: ProjectProps[] = [
     subtext: "",
     background: rooftop2,
     link: "/rooftopresidencesii"
+  },
+  {
+    title: "Oceanview Campeche",
+    text: "O Oceanview Campeche é a escolha certa para quem quer protagonizar os melhores momentos de sua vida.",
+    subtext: "",
+    background: oceanview,
+    link: "/oceanview"
   }
 ];

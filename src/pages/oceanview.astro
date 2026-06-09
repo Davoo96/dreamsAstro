@@ -1,0 +1,136 @@
+---
+import { projectNavitagionItems } from "@components/navigation/definitions";
+import Value from "@components/value";
+import { OCEANVIEW_DEFINITIONS } from "@components/value/definitions";
+import slideImage1 from "@images/PredioCampeche1.jpg";
+import slideImage2 from "@images/PredioCampeche2.jpg";
+import slideImage3 from "@images/Campeche_montagem1.jpg";
+import slideImage4 from "@images/Campeche_montagem2.jpg";
+import slideImage5 from "@images/Campeche2pavSalaCozinha.jpg";
+import slideImage6 from "@images/Campeche2pavQuartoMaster.jpg";
+import slideImage7 from "@images/Campeche2pavStudio.jpg";
+import slideImage8 from "@images/Campeche3pavSalaCozinha2D.jpg";
+import slideImage9 from "@images/Campeche3PavStudio.jpg";
+import slideImage10 from "@images/Campeche4pavQuartoMaster.jpg";
+import slideImage11 from "@images/CampecheSalao.jpg";
+import slideImage12 from "@images/Campeche2pavStudio_P.jpg";
+import slideImage13 from "@images/Campeche3PavStudio_P.jpg";
+import slideImage14 from "@images/Campeche3pavSalaCozinha2D_P.jpg";
+import slideImage15 from "@images/Campeche3pavQuartoMaster_P.jpg";
+import slideImage16 from "@images/Campeche4pavQuartoMaster_P.jpg";
+import slideImage17 from "@images/CampecheSalao_P.jpg";
+import Layout from "@layouts/Layout.astro";
+import { Image, getImage } from "astro:assets";
+import Carousel from "../components/carousel";
+
+const slides = [
+  slideImage1,
+  slideImage2,
+  slideImage3,
+  slideImage4,
+  slideImage5,
+  slideImage6,
+  slideImage7,
+  slideImage8,
+  slideImage9,
+  slideImage10,
+  slideImage11,
+  slideImage12,
+  slideImage13,
+  slideImage14,
+  slideImage15,
+  slideImage16,
+  slideImage17
+];
+
+const optimizedSlides = await Promise.all(
+  slides.map(slide => getImage({ src: slide, format: "webp" }))
+);
+
+const carouselSlides = [
+  { src: optimizedSlides[0].src, name: "Fachada Oceanview Campeche" },
+  { src: optimizedSlides[1].src, name: "Vista do prédio" },
+  { src: optimizedSlides[2].src, name: "Montagem 1" },
+  { src: optimizedSlides[3].src, name: "Montagem 2" },
+  { src: optimizedSlides[4].src, name: "Sala e cozinha 2º pavimento" },
+  { src: optimizedSlides[5].src, name: "Quarto master 2º pavimento" },
+  { src: optimizedSlides[6].src, name: "Stúdio 2º pavimento" },
+  { src: optimizedSlides[7].src, name: "Sala e cozinha 3º pavimento" },
+  { src: optimizedSlides[8].src, name: "Stúdio 3º pavimento" },
+  { src: optimizedSlides[9].src, name: "Quarto master 4º pavimento" },
+  { src: optimizedSlides[10].src, name: "Salão de festas" },
+  { src: optimizedSlides[11].src, name: "Planta Stúdio 2º Pavimento" },
+  { src: optimizedSlides[12].src, name: "Planta Stúdio 3º Pavimento" },
+  { src: optimizedSlides[13].src, name: "Planta Sala/Cozinha 3º Pavimento" },
+  { src: optimizedSlides[14].src, name: "Planta Quarto Master 3º Pavimento" },
+  { src: optimizedSlides[15].src, name: "Planta Quarto Master 4º Pavimento" },
+  { src: optimizedSlides[16].src, name: "Planta Salão" }
+];
+---
+
+<Layout
+  title="Oceanview Campeche"
+  items={projectNavitagionItems}
+  logoNavigation="/"
+  description="O Oceanview Campeche é a escolha certa para quem quer protagonizar os melhores momentos de sua vida."
+>
+  <header
+    class="relative flex items-center justify-start h-dynamic bg-100 px-3 bg-gradient-to-b from-black-100 to-transparent"
+  >
+    <div class="max-w-7/10 z-40" transition:name="Oceanview Campeche">
+      <h2
+        class="text-start uppercase font-bold text-2xl text-white tablet:text-lg tablet:pl-32"
+      >
+        <span class="block">Oceanview</span>
+        <span class="block">Campeche</span>
+      </h2>
+    </div>
+    <Image
+      src={slideImage1}
+      alt="Fachada do empreendimento Oceanview Campeche."
+      class="absolute inset-0 w-full h-full object-cover z-[-1]"
+    />
+  </header>
+
+  <main>
+    <section
+      class="desktop:target:scroll-m-0 target:scroll-m-28 pt-12 desktop:pt-32 max-w-8/10 mx-auto"
+      id="about"
+    >
+      <h2
+        class="text-orange-300 text-2xl tablet:text-5xl text-center font-bold pb-8 tablet:pb-20 uppercase"
+      >
+        O protagonista é você!
+      </h2>
+      <p class="text-base tablet:text-2xl mb-9">
+        Viva com conforto e praticidade no Oceanview Campeche, um empreendimento
+        pensado para quem busca qualidade de vida perto do mar, com plantas
+        inteligentes e acabamentos de alto padrão.
+      </p>
+      <p class="text-base tablet:text-2xl">
+        Com unidades de <strong>stúdios e 2 quartos</strong>, entre 28 m² e 95 m²,
+        o projeto oferece cozinha integrada, lavanderia, esquadrias em alumínio e
+        pé direito duplo. Localizado no bairro Campeche, um dos mais desejados de
+        Florianópolis, conta com área comum e 20 vagas de garagem, unindo
+        tranquilidade, segurança e fácil acesso às praias e ao centro da cidade.
+      </p>
+    </section>
+
+    <section class="py-12 mb-32 desktop:py-32">
+      <Carousel
+        client:load
+        slides={carouselSlides}
+        id="gallery"
+      />
+      <div
+        class="grid grid-cols-2 pt-12 justify-items-center tablet:grid-cols-4 gap-6 max-w-8/10 mx-auto tablet:pt-16 tablet:mt-24 tablet:gap-16"
+      >
+        {
+          OCEANVIEW_DEFINITIONS.map(value => (
+            <Value client:load icon={value.icon} label={value.label} />
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</Layout>
