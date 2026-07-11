@@ -2,6 +2,7 @@
 import Navigation, {
   type NavigationItemsProps
 } from "../components/navigation";
+import DreamsIntro from "@components/intro/DreamsIntro.astro";
 import Footer from "@components/footer/footer.astro";
 import Contact from "@components/contact/contact.astro";
 import { ViewTransitions } from "astro:transitions";
@@ -41,6 +42,17 @@ const requestMetricsToken = import.meta.env.PUBLIC_REQUEST_METRICS_TOKEN;
       /></noscript
     >
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <script is:inline>
+      (function () {
+        try {
+          var replay = location.search.indexOf("replayIntro") !== -1;
+          if (replay) sessionStorage.removeItem("dreamsIntroSeen");
+          if (!replay && sessionStorage.getItem("dreamsIntroSeen") === "1") {
+            document.documentElement.classList.add("dreams-intro-skip");
+          }
+        } catch (e) {}
+      })();
+    </script>
     <script src="../scripts/app.ts"></script>
     <script
       is:inline
@@ -142,7 +154,8 @@ const requestMetricsToken = import.meta.env.PUBLIC_REQUEST_METRICS_TOKEN;
     <title>{title}</title>
     <ViewTransitions />
   </head>
-  <body>
+  <body class="dreams-intro-pending">
+    <DreamsIntro />
     <Navigation client:load items={items} logoNavigation={logoNavigation} />
     <slot />
     <Contact />

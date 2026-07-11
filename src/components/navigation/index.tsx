@@ -31,8 +31,23 @@ const Navigation = ({ items, logoNavigation }: NavigationItemsProps) => {
     >
       <div className="w-full tablet:flex tablet:justify-between tablet:items-center tablet:max-w-5xl tablet:m-auto">
         <header className="flex gap-5 items-center justify-between">
-          <a aria-label="Dreams Logo" href={logoNavigation}>
-            <DreamsLogo className="w-[220px] tablet:w-full" />
+          <a
+            aria-label="Dreams Logo"
+            href={logoNavigation}
+            className="relative inline-block"
+          >
+            <div
+              id="dr-logo-slot"
+              className="h-[78px] w-[220px] tablet:w-full"
+              style={{ height: 78, width: 220, minHeight: 78, minWidth: 220 }}
+              aria-hidden="true"
+            />
+            <div
+              id="nav-logo-static"
+              className="absolute inset-0 origin-left scale-[0.82] opacity-0 invisible pointer-events-none"
+            >
+              <DreamsLogo className="w-full" />
+            </div>
           </a>
           <button
             className={`relative flex rounded px-6 py-4 my-2.5 before:content-[''] before:h-0.5 before:w-8 before:bg-white before:absolute before:inline-block before:transition-transform before:duration-300 before:shadow-copy-x before:left-2 tablet:hidden ${
@@ -55,6 +70,7 @@ const Navigation = ({ items, logoNavigation }: NavigationItemsProps) => {
           {items.map((item, index) => (
             <Item
               key={index}
+              data-nav-item
               onClick={() => setIsOpen(false)}
               className="mb-5 font-bold text-2xl relative tablet:mb-0 tablet:after:content-[''] tablet:after:absolute tablet:after:w-full tablet:after:h-0.5 tablet:after:scale-0 tablet:after:left-0 tablet:after:origin-right tablet:after:bottom-0 tablet:after:transition-transform tablet:after:duration-300 tablet:after:ease-in tablet:after:bg-orange-300 tablet:hover:after:scale-100 tablet:hover:after:origin-left"
               {...item}
