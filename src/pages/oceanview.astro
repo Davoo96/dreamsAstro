@@ -6,7 +6,6 @@ import slideImage1 from "@images/PredioCampeche1.jpg";
 import slideImage2 from "@images/PredioCampeche2.jpg";
 import slideImage3 from "@images/Campeche_montagem1.jpg";
 import slideImage4 from "@images/Campeche_montagem2.jpg";
-import slideImage5 from "@images/Campeche2pavSalaCozinha.jpg";
 import slideImage6 from "@images/Campeche2pavQuartoMaster.jpg";
 import slideImage7 from "@images/Campeche2pavStudio.jpg";
 import slideImage8 from "@images/Campeche3pavSalaCozinha2D.jpg";
@@ -24,48 +23,30 @@ import { Image, getImage } from "astro:assets";
 import Carousel from "../components/carousel";
 
 const slides = [
-  slideImage1,
-  slideImage2,
-  slideImage3,
-  slideImage4,
-  slideImage5,
-  slideImage6,
-  slideImage7,
-  slideImage8,
-  slideImage9,
-  slideImage10,
-  slideImage11,
-  slideImage12,
-  slideImage13,
-  slideImage14,
-  slideImage15,
-  slideImage16,
-  slideImage17
+  { image: slideImage1, name: "Fachada Oceanview Campeche" },
+  { image: slideImage2, name: "Vista do prédio" },
+  { image: slideImage3, name: "Montagem 1" },
+  { image: slideImage4, name: "Montagem 2" },
+  { image: slideImage6, name: "Quarto master 2º pavimento" },
+  { image: slideImage7, name: "Stúdio 2º pavimento" },
+  { image: slideImage8, name: "Sala e cozinha 3º pavimento" },
+  { image: slideImage9, name: "Stúdio 3º pavimento" },
+  { image: slideImage10, name: "Quarto master 4º pavimento" },
+  { image: slideImage11, name: "Salão de festas" },
+  { image: slideImage12, name: "Planta Stúdio 2º Pavimento" },
+  { image: slideImage13, name: "Planta Stúdio 3º Pavimento" },
+  { image: slideImage14, name: "Planta Sala/Cozinha 3º Pavimento" },
+  { image: slideImage15, name: "Planta Quarto Master 3º Pavimento" },
+  { image: slideImage16, name: "Planta Quarto Master 4º Pavimento" },
+  { image: slideImage17, name: "Planta Salão" }
 ];
 
-const optimizedSlides = await Promise.all(
-  slides.map(slide => getImage({ src: slide, format: "webp" }))
+const carouselSlides = await Promise.all(
+  slides.map(async ({ image, name }) => ({
+    src: (await getImage({ src: image, format: "webp" })).src,
+    name
+  }))
 );
-
-const carouselSlides = [
-  { src: optimizedSlides[0].src, name: "Fachada Oceanview Campeche" },
-  { src: optimizedSlides[1].src, name: "Vista do prédio" },
-  { src: optimizedSlides[2].src, name: "Montagem 1" },
-  { src: optimizedSlides[3].src, name: "Montagem 2" },
-  { src: optimizedSlides[4].src, name: "Sala e cozinha 2º pavimento" },
-  { src: optimizedSlides[5].src, name: "Quarto master 2º pavimento" },
-  { src: optimizedSlides[6].src, name: "Stúdio 2º pavimento" },
-  { src: optimizedSlides[7].src, name: "Sala e cozinha 3º pavimento" },
-  { src: optimizedSlides[8].src, name: "Stúdio 3º pavimento" },
-  { src: optimizedSlides[9].src, name: "Quarto master 4º pavimento" },
-  { src: optimizedSlides[10].src, name: "Salão de festas" },
-  { src: optimizedSlides[11].src, name: "Planta Stúdio 2º Pavimento" },
-  { src: optimizedSlides[12].src, name: "Planta Stúdio 3º Pavimento" },
-  { src: optimizedSlides[13].src, name: "Planta Sala/Cozinha 3º Pavimento" },
-  { src: optimizedSlides[14].src, name: "Planta Quarto Master 3º Pavimento" },
-  { src: optimizedSlides[15].src, name: "Planta Quarto Master 4º Pavimento" },
-  { src: optimizedSlides[16].src, name: "Planta Salão" }
-];
 ---
 
 <Layout
@@ -86,7 +67,7 @@ const carouselSlides = [
       </h2>
     </div>
     <Image
-      src={slideImage1}
+      src={slideImage2}
       alt="Fachada do empreendimento Oceanview Campeche."
       class="absolute inset-0 w-full h-full object-cover z-[-1]"
     />
@@ -108,20 +89,17 @@ const carouselSlides = [
         inteligentes e acabamentos de alto padrão.
       </p>
       <p class="text-base tablet:text-2xl">
-        Com unidades de <strong>stúdios e 2 quartos</strong>, entre 28 m² e 95 m²,
-        o projeto oferece cozinha integrada, lavanderia, esquadrias em alumínio e
-        pé direito duplo. Localizado no bairro Campeche, um dos mais desejados de
-        Florianópolis, conta com área comum e 20 vagas de garagem, unindo
-        tranquilidade, segurança e fácil acesso às praias e ao centro da cidade.
+        Com unidades de <strong>stúdios e 2 quartos</strong>, entre 28 m² e 95
+        m², o projeto oferece cozinha integrada, lavanderia, esquadrias em
+        alumínio e pé direito duplo. Localizado no bairro Campeche, um dos mais
+        desejados de Florianópolis, conta com área comum e 20 vagas de garagem,
+        unindo tranquilidade, segurança e fácil acesso às praias e ao centro da
+        cidade.
       </p>
     </section>
 
     <section class="py-12 mb-32 desktop:py-32">
-      <Carousel
-        client:load
-        slides={carouselSlides}
-        id="gallery"
-      />
+      <Carousel client:load slides={carouselSlides} id="gallery" />
       <div
         class="grid grid-cols-2 pt-12 justify-items-center tablet:grid-cols-4 gap-6 max-w-8/10 mx-auto tablet:pt-16 tablet:mt-24 tablet:gap-16"
       >

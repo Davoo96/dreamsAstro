@@ -4,7 +4,7 @@ import jabuticabeira from "@images/pht-04.png";
 import view from "@images/pht-36.png";
 import rooftop from "@images/pht-56.jpg";
 import rooftop2 from "@images/rooftopPortalRibeirao.jpg";
-import oceanview from "@images/PredioCampeche1.jpg";
+import oceanview from "@images/PredioCampeche2.jpg";
 
 export const PROJECT_DEFINITIONS: ProjectProps[] = [
   {
