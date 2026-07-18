@@ -44,7 +44,7 @@ export const PROJECT_DEFINITIONS: ProjectProps[] = [
   },
   {
     title: "Oceanview Campeche",
-    text: "O Oceanview Campeche é a escolha certa para quem quer protagonizar os melhores momentos de sua vida.",
+    text: "Viver bem, viver a poucos passos do mar",
     subtext: "",
     background: oceanview,
     link: "/oceanview"
